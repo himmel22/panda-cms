@@ -1,0 +1,159 @@
+@import vars
+
+#page-top
+    background-color: #f6f5f3
+    .top-bg
+        width: 1200px
+        height: 100px
+        margin-left: -100px
+        padding-left: 100px
+        background: url("../images/pageTop.jpg") no-repeat
+    #logo a
+        display: block
+        width: 300px
+        height: 100px
+
+    #top-tools
+        text-align: right
+        #top-nav
+            margin-top: 20px
+            a
+                color: #666
+
+#slides
+    background-color: #111
+    height: 366px
+    overflow: hidden
+    .carousel
+        margin-bottom: 0px
+        width: 1200px
+        margin-left: -100px
+    .carousel-control
+        display: none
+    .carousel-indicators
+        top: 340px
+        right: 120px
+        li
+            margin-left: 15px
+            cursor: pointer
+    .item
+        img
+            margin: auto
+
+#highlights
+    padding-top: 20px
+    padding-bottom: 20px
+    background-color: #F6F5F3
+    .content
+        position: relative
+        h2
+            line-height: 18px
+            color: #8C523F
+            font-size: 14px
+            font-weight: bold   
+            a
+                color: #8C523F
+                font-size: 14px
+                font-weight: bold
+        .time
+            position: absolute
+            right: 0
+            top: 0
+            color: #666
+        .more
+            background-color: #856D54
+            color: #FFF
+            border-radius: 5px
+            padding: 2px 5px
+    #contact
+        ul
+            padding: 0
+            margin: 0
+        li
+            list-style-type: none
+
+#footer
+    height: 250px
+    background-color: #555
+    color: #FFF
+    .footer-logo
+        width: 175px
+        height: 30px
+        margin-top: 10px
+        background: url("../images/footerLogo.png") no-repeat
+    .copyright
+        text-align: right
+        span
+            line-height: 50px
+
+
+#navbar
+    background-color: #E9E8E8
+    border-top: 1px solid #ccc
+    border-bottom: 1px solid #ccc
+
+#nav
+    margin: 0px
+    padding: 0px
+    list-style: none
+    font-weight: bold
+    /* Clear floats */
+    float: left
+    width: 100%
+    position: relative
+    z-index: 5
+    li
+        float: left
+        margin-right: 10px
+        position: relative
+    a
+        display: block
+        padding: 5px 15px
+        width: 100px
+        color: #666
+        text-decoration: none
+        background: #E9E8E8 url("../images/navMenu.png") no-repeat
+        text-indent: -9999px
+        &.xuanze
+            background-position: 10px 5px
+        &.yedi
+            background-position: -135px 5px
+        &.xingdong
+            background-position: -282px 5px
+        &.tuandui
+            background-position: -430px 5px
+        &.fenxiang_news
+            background-position: -576px 5px
+        &.yaoqing
+            background-position: -723px 5px
+    a:hover
+        color:#000
+        background-color:#FFF
+        text-decoration:underline
+
+    /*--- DROPDOWN ---*/
+    ul
+        margin: 0px
+        margin-top: 1px
+        padding: 0px
+        background: #fff
+        background: rgba(255,255,255,0);
+        list-style: none
+        position: absolute
+        left:-9999px
+    ul li
+        float: none
+    ul a
+        background-image: none
+        text-indent: 0
+        white-space: nowrap
+    li:hover ul
+        left: 0
+    li:hover a
+        text-decoration: underline
+    li:hover ul a
+        text-decoration: none
+    li:hover ul li a:hover
+        background: #FFF
+
+            

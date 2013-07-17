@@ -1,5 +1,132 @@
 extends layout
-
+block head
+    script
+        $(document).ready(function(){
+            $('.carousel').carousel();
+            });
+        
 block content
-  h1= title
-  p Welcome to #{title}
+    #page-top
+        .container
+            .top-bg
+                .row
+                    #logo.span4
+                        a(href="/")
+                    #top-tools.span8
+                        #top-nav
+                            a(href="/") 新闻
+                            span &nbsp;|&nbsp;
+                            a(href="/") 论坛
+                        #top-search
+    #navbar
+        .container
+            ul#nav
+                li
+                    a.xuanze(href='http://www.panwenshi.com/xuanze.asp') 选择
+                    ul
+                        li: a(href='http://www.panwenshi.com/xuanze_detail.asp?id=129') 缘起：大熊猫
+                        li: a(href='http://www.panwenshi.com/xuanze_detail.asp?id=197') 坚守：白头叶猴
+                        li: a(href='http://www.panwenshi.com/xuanze_detail.asp?id=198') 抉择：中华白海豚
+                        li: a(href='http://www.panwenshi.com/xuanze_detail.asp?id=199') 礼物：化石发掘
+                        li: a(href='http://www.panwenshi.com/xuanze_detail.asp?id=200') 机会：生物多样性
+
+                li
+                    a.yedi(href='http://www.panwenshi.com/yedi.asp') 野地
+                    ul
+                        li: a(href='http://www.panwenshi.com/yedi_detail.asp?id=201') 寒冷的西部群山
+                        li: a(href='http://www.panwenshi.com/yedi_detail.asp?id=132') 喀斯特石山丛林
+                        li: a(href='http://www.panwenshi.com/yedi_detail.asp?id=202') 北部湾浅海湿地
+                li
+                    a.xingdong(href='http://www.panwenshi.com/xingdong.asp') 行动
+                    ul
+                        li: a(href='http://www.panwenshi.com/xingdonglist.asp?projectid=133') 科研项目
+                        li: a(href='http://www.panwenshi.com/xingdonglist.asp?projectid=134') 科普项目
+                        li: a(href='http://www.panwenshi.com/xingdonglist.asp?projectid=135') 文化项目
+                        li: a(href='http://www.panwenshi.com/xingdonglist.asp?projectid=136') 公益项目
+                li
+                    a.tuandui(href='http://www.panwenshi.com/tuandui.asp') 团队
+                    ul
+                        li: a(href='http://www.panwenshi.com/tuandui_detail.asp?id=160') 潘文石
+                        li: a(href='http://www.panwenshi.com/tuandui_detail.asp?id=161')   ◇  科研  
+                        li: a(href='http://www.panwenshi.com/tuandui_detail.asp?id=162')   ◇  荣誉  
+                        li: a(href='http://www.panwenshi.com/tuandui_detail.asp?id=163')   ◇  著作与文章  
+                        li: a(href='http://www.panwenshi.com/tuandui_detail.asp?id=164')   ◇  言论与轶事  
+                        li: a(href='http://www.panwenshi.com/tuandui_info.asp?moduleId=178') 科研团队
+                        li: a(href='http://www.panwenshi.com/tuandui_info.asp?moduleId=179') 支持团队
+                        li: a(href='http://www.panwenshi.com/tuandui_info.asp?moduleId=180') 机构
+                li
+                    a.fenxiang_news(href='http://www.panwenshi.com/fenxiang_news.asp') 分享
+                    ul
+                        li: a(href='http://www.panwenshi.com/fenxiang_news.asp') 新闻
+                        li: a(href='http://www.panwenshi.com/fenxiang_photo.asp') 图片
+                        li: a(href='http://www.panwenshi.com/fenxiang_vedio.asp') 视频
+                        li: a(href='http://www.panwenshi.com/fenxiang_ziliao.asp') 资料
+                        li: a(href='http://www.panwenshi.com/fenxiang_zhuanji.asp') 专辑
+                li
+                    a.yaoqing(href='http://www.panwenshi.com/yaoqing.asp') 邀请
+                    ul
+                        li: a(href='http://www.panwenshi.com/yaoqing.asp') 联系我们
+                        li: a(href='http://www.panwenshi.com/zhiyuanzhe.asp') 志愿者
+                        li: a(href='http://www.panwenshi.com/donation.asp') 捐助与感谢
+    #slides
+        .container
+            #carousel.carousel.slide
+                ol.carousel-indicators
+                    li.active(data-target='#carousel', data-slide-to='0')
+                    li(data-target='#carousel', data-slide-to='1')
+                    li(data-target='#carousel', data-slide-to='2')
+                .carousel-inner
+                    .item.active
+                        a(href="http://www.panwenshi.com/xuanze_detail.asp?id=197", target="_blank")
+                            img(src='images/slide01.jpg', alt='')
+                    .item
+                        a(href="http://www.panwenshi.com/xuanze_detail.asp?id=198", target="_blank")
+                            img(src='images/slide02.jpg', alt='')
+                    .item
+                        a(href="http://www.panwenshi.com/xuanze_detail.asp?id=129", target="_blank")
+                            img(src='images/slide03.jpg', alt='')
+                a.left.carousel-control(href='#myCarousel', data-slide='prev') ‹
+                a.right.carousel-control(href='#myCarousel', data-slide='next') ›
+    #highlights
+        .container
+            .row
+                .content-block.span4
+                    a.image(href="http://www.panwenshi.com/yedi_detail.asp?id=132", target="_blank")
+                        img(src="images/content01.png", alt="")
+                    .content
+                        h2 
+                            a(href="http://www.panwenshi.com/yedi_detail.asp?id=132", target="_blank") 喀斯特石山丛林
+                        .time 2011-07-08
+                        p
+                            | 自然是万物的家园，更是人类智慧和灵感的源泉。一颗苹果，一道闪电可以改变人类文明的进程。
+                        a.more(href="http://www.panwenshi.com/yedi.asp", target="_blank") more
+                .content-block.span4
+                    a.image(href="http://www.panwenshi.com/xingdonglist.asp?projectid=134", target="_blank")
+                        img(src="images/content02.png", alt="")
+                    .content
+                        h2 
+                            a(href="http://www.panwenshi.com/xingdonglist.asp?projectid=134", target="_blank") 荒野家园--“彩虹船”生态夏令营
+                        .time 2011-07-08
+                        p
+                            | 自然是万物的家园，更是人类智慧和灵感的源泉。一颗苹果，一道闪电可以改变人类文明的进程。
+                        a.more(href="http://www.panwenshi.com/xingdong.asp", target="_blank") more
+                .content-block.span4#contact
+                    a.image(href="http://www.panwenshi.com/yaoqing.asp?id=174", target="_blank")
+                        img(src="images/content03.png", alt="")
+                    .content
+                        h2 
+                            img(src="images/contactIcon.png", alt="")
+                            span &nbsp;&nbsp;联系我们
+                        ul
+                            li 地址：北京大学保护生物学中心
+                            li 邮编：1000871
+                            li 电话：+86-10-62752721
+    #footer
+        .container
+            .row
+                .span4
+                    .footer-logo
+                .span8
+                    .copyright
+                        span
+                            | Copyright 2011 回响国际传媒 Echo International Media Co.Ltd  京ICP备0600483号

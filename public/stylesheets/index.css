@@ -1,0 +1,187 @@
+#page-top {
+  background-color: #f6f5f3;
+}
+#page-top .top-bg {
+  width: 1200px;
+  height: 100px;
+  margin-left: -100px;
+  padding-left: 100px;
+  background: url("../images/pageTop.jpg") no-repeat;
+}
+#page-top #logo a {
+  display: block;
+  width: 300px;
+  height: 100px;
+}
+#page-top #top-tools {
+  text-align: right;
+}
+#page-top #top-tools #top-nav {
+  margin-top: 20px;
+}
+#page-top #top-tools #top-nav a {
+  color: #666;
+}
+#slides {
+  background-color: #111;
+  height: 366px;
+  overflow: hidden;
+}
+#slides .carousel {
+  margin-bottom: 0px;
+  width: 1200px;
+  margin-left: -100px;
+}
+#slides .carousel-control {
+  display: none;
+}
+#slides .carousel-indicators {
+  top: 340px;
+  right: 120px;
+}
+#slides .carousel-indicators li {
+  margin-left: 15px;
+  cursor: pointer;
+}
+#slides .item img {
+  margin: auto;
+}
+#highlights {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #f6f5f3;
+}
+#highlights .content {
+  position: relative;
+}
+#highlights .content h2 {
+  line-height: 18px;
+  color: #8c523f;
+  font-size: 14px;
+  font-weight: bold;
+}
+#highlights .content h2 a {
+  color: #8c523f;
+  font-size: 14px;
+  font-weight: bold;
+}
+#highlights .content .time {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #666;
+}
+#highlights .content .more {
+  background-color: #856d54;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+#highlights #contact ul {
+  padding: 0;
+  margin: 0;
+}
+#highlights #contact li {
+  list-style-type: none;
+}
+#footer {
+  height: 250px;
+  background-color: #555;
+  color: #fff;
+}
+#footer .footer-logo {
+  width: 175px;
+  height: 30px;
+  margin-top: 10px;
+  background: url("../images/footerLogo.png") no-repeat;
+}
+#footer .copyright {
+  text-align: right;
+}
+#footer .copyright span {
+  line-height: 50px;
+}
+#navbar {
+  background-color: #e9e8e8;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+#nav {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-weight: bold;
+/* Clear floats */
+  float: left;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+/*--- DROPDOWN ---*/
+}
+#nav li {
+  float: left;
+  margin-right: 10px;
+  position: relative;
+}
+#nav a {
+  display: block;
+  padding: 5px 15px;
+  width: 100px;
+  color: #666;
+  text-decoration: none;
+  background: #e9e8e8 url("../images/navMenu.png") no-repeat;
+  text-indent: -9999px;
+}
+#nav a.xuanze {
+  background-position: 10px 5px;
+}
+#nav a.yedi {
+  background-position: -135px 5px;
+}
+#nav a.xingdong {
+  background-position: -282px 5px;
+}
+#nav a.tuandui {
+  background-position: -430px 5px;
+}
+#nav a.fenxiang_news {
+  background-position: -576px 5px;
+}
+#nav a.yaoqing {
+  background-position: -723px 5px;
+}
+#nav a:hover {
+  color: #000;
+  background-color: #fff;
+  text-decoration: underline;
+}
+#nav ul {
+  margin: 0px;
+  margin-top: 1px;
+  padding: 0px;
+  background: #fff;
+  background: rgba(255,255,255,0);
+  list-style: none;
+  position: absolute;
+  left: -9999px;
+}
+#nav ul li {
+  float: none;
+}
+#nav ul a {
+  background-image: none;
+  text-indent: 0;
+  white-space: nowrap;
+}
+#nav li:hover ul {
+  left: 0;
+}
+#nav li:hover a {
+  text-decoration: underline;
+}
+#nav li:hover ul a {
+  text-decoration: none;
+}
+#nav li:hover ul li a:hover {
+  background: #fff;
+}
