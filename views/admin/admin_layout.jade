@@ -1,0 +1,35 @@
+doctype 5
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/css/bootstrap.css')
+        link(rel='stylesheet', href='/css/admin.css')
+        script(type="text/javascript", src="/js/lib/jquery-1.9.1.min.js")  
+        script(type="text/javascript", src="/js/lib/bootstrap.js")
+        block head
+    body
+        .navbar.navbar-inverse
+            .navbar-inner
+                .container
+                    button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.brand(href='/admin') Panda-cms
+                    .nav-collapse.collapse
+        #sidemenu
+            ul
+                li
+                    a.active(href="/admin/content") 
+                        i.icon-search.icon-white
+                        | 内容管理
+                li
+                    a(href="/admin") 
+                        i.icon-user.icon-white
+                        | 用户管理
+                li
+                    a(href="/admin") 帮助
+        #content
+            .container-fluid
+                .row-fluid
+                    block content

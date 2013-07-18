@@ -1,0 +1,43 @@
+@import 'nib'
+
+body
+	background-color: #444
+#sidemenu
+	display: block
+	float: left
+	position: relative
+	width: 220px
+	z-index: 16
+	ul
+		padding: 0
+		margin: 0
+		margin-top: 20px
+	li
+		list-style: none
+		a
+			color: #ccc
+			display: block
+			line-height: 3em
+			padding-left: 10px
+			border-top: 1px solid #4e4e4e
+			border-bottom: 1px solid #393939
+			transition: background-color 0.1s, color 0.1s
+			&:hover
+				color: #fff
+				text-decoration: none
+				background-color: #333
+			&.active
+				background: linear-gradient(top, #353535, #333)
+			i
+				margin-right: 5px
+
+#content
+	background: none repeat scroll 0 0 #eeeeee
+	margin-left: 220px
+	margin-right: 0
+	padding-bottom: 25px
+	position: relative
+	min-height: 900px
+	width: auto
+	background-clip: padding-box
+	border-top-left-radius: 8px
