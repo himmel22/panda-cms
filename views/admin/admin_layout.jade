@@ -20,16 +20,21 @@ html
         #sidemenu
             ul
                 li
-                    a.active(href="/admin/content") 
-                        i.icon-search.icon-white
+                    a.active(href="/admin") 
+                        i.icon-list.icon-white
                         | 内容管理
                 li
                     a(href="/admin") 
                         i.icon-user.icon-white
                         | 用户管理
                 li
-                    a(href="/admin") 帮助
+                    a(href="/admin")
+                        i.icon-question-sign.icon-white
+                        | 帮助
+                li
+                    a(href="/admin")
+                        i.icon-question-sign.icon-white
+                        | 帮助
         #content
             .container-fluid
-                .row-fluid
-                    block content
+                block content
