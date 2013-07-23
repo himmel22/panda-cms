@@ -1,16 +1,1 @@
 extends admin_layout
-block head
-	script(type="text/javascript", src="/js/lib/ckeditor/ckeditor.js")
-	script
-		$(function() {
-			CKEDITOR.replace('editor1', {
-				language: 'zh-cn'
-				});
-			});
-block content
-	.row-fluid
-		#content-header.span12
-			h1 发布文章
-	.row-fluid
-		#content-body.span12
-			textarea(name="editor1")
