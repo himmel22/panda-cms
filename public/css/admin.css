@@ -1,4 +1,6 @@
 body{background-color:#444}
+a{color:#629bda;}
+a:hover{color:#2156aa;text-decoration:none}
 #sidemenu{display:block;float:left;position:relative;width:220px;z-index:16;}
 #sidemenu ul{padding:0;margin:0;margin-top:20px;position:absolute;width:220px}
 #sidemenu li{list-style:none;}
@@ -8,3 +10,10 @@ body{background-color:#444}
 #sidemenu li a i{margin-right:5px}
 #content{background:none repeat scroll 0 0 #eee;margin-left:220px;margin-right:0;padding-bottom:25px;position:relative;min-height:900px;width:auto;-webkit-background-clip:padding;-moz-background-clip:padding;background-clip:padding-box;border-top-left-radius:8px;padding-top:20px}
 #content-header{padding-bottom:15px}
+.box{background-color:#fff;border:1px solid #ddd;-webkit-border-radius:5px;border-radius:5px;margin-bottom:20px;}
+.box .box-header{background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #fdfdfd), color-stop(1, #eaeaea));background:-webkit-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);background:-moz-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);background:-o-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);background:-ms-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);background:linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);padding-left:10px;-webkit-border-top-left-radius:5px;border-top-left-radius:5px;-webkit-border-top-right-radius:5px;border-top-right-radius:5px;border-bottom:1px solid #ddd;height:32px;}
+.box .box-header h2{color:#636363;margin:0;padding:0;font-size:12px;line-height:35px}
+.box .list,.box .tree-list{margin:0;background-color:#f6f6f6;}
+.box .list > li,.box .tree-list > li{border-bottom:1px solid #ddd;border-top:1px solid #fff;padding:15px;list-style:none;color:#999;}
+.box .list > li a,.box .tree-list > li a{font-size:14px}
+.box .tree-list li{line-height:32px}
