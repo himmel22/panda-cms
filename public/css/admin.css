@@ -16,7 +16,7 @@ a:hover{color:#2156aa;text-decoration:none}
 .box .box-header .ops{position:absolute;right:10px;top:7px}
 .box .list,.box .tree-list{margin:0;background-color:#f6f6f6;}
 .box .list li,.box .tree-list li{line-height:30px}
-.box .list > li,.box .tree-list > li{border-bottom:1px solid #ddd;border-top:1px solid #fff;padding:15px;list-style:none;color:#666;font-size:14px;}
+.box .list > li,.box .tree-list > li{border-bottom:1px solid #ddd;border-top:1px solid #fff;padding:10px;list-style:none;color:#666;font-size:14px;}
 .box .list > li a,.box .tree-list > li a{font-size:14px}
 .box .tree-list .branch{margin-top:10px;margin-bottom:10px;}
 .box .tree-list .branch li{border-bottom:1px dotted #ddd;padding-top:5px;padding-bottom:0}
