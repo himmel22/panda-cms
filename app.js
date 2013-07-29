@@ -6,11 +6,17 @@
 var express = require('express')
   , routes = require('./routes')
   , admin = require('./routes/admin')
+  , article = require('./routes/article')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , mongoose = require('mongoose');
 
 var app = express();
 
+//连接数据库
+mongoose.connect('mongodb://localhost/panda_dev')
+
+//chrome console.log
 app.use(require('chromelogger').middleware);
 
 // all environments
@@ -34,6 +40,11 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/admin', admin.articles);
+app.get('/catalog/:id/add-article', article.addView);
+app.get('/article', article.add);
+app.get('/article/:id', article.view);
+app.get('/article/:id/edit', article.editView);
+app.put('/article/:id/edit', article.edit);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
