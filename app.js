@@ -40,11 +40,15 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/admin', admin.articles);
+
+//article
 app.get('/catalog/:id/add-article', article.addView);
-app.get('/article', article.add);
+app.post('/article', article.add);
 app.get('/article/:id', article.view);
 app.get('/article/:id/edit', article.editView);
-app.put('/article/:id/edit', article.edit);
+app.post('/article/:id/edit', article.edit);
+
+//front pages
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

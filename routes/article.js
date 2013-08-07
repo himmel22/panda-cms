@@ -8,14 +8,14 @@
 
     var article = new Article({ name: 'fluffy' });
 
-    article.save(function (err, fluffy) {
-        if (err) {
-            res.chrome.log(err);
-        }
-        res.chrome.log(fluffy);
+    // article.save(function (err, fluffy) {
+    //     if (err) {
+    //         res.chrome.log(err);
+    //     }
+    //     res.chrome.log(fluffy);
         
-        res.render('admin/index', { title: '内容管理' });
-    });
+    //     res.render('admin/index', { title: '内容管理' });
+    // });
 
     
  };
