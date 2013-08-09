@@ -1,4 +1,4 @@
-extends admin_layout
+extends adminLayout
 block content
 	.row-fluid#content-header
 		.span12
@@ -10,23 +10,23 @@ block content
 					h2 独立页面
 				.box-body
 					ul.tree-list
-						li: a(href="/article/index/edit") 首页
-						li: a(href="/article/tuandui/edit") 团队
+						li: a(href="#") 首页
+						li: a(href="/node/tuandui/edit") 团队
 							ul
-								li: a(href="/article/panwenshi/edit") 潘文石
+								li: a(href="/node/panwenshi/edit") 潘文石
 									ul.branch
-										li: a(href="/article/keyan/edit") 科研
-										li: a(href="/article/rongyu/edit") 荣誉
-										li: a(href="/article/zhuzuoyuwenzhang/edit") 著作与文章
-										li: a(href="/article/yanlunyuyishi/edit") 言论与轶事
-								li: a(href="/article/keyantuandui/edit") 科研团队
-								li: a(href="/article/zhichituandui/edit") 支持团队
-								li: a(href="/article/jigou/edit") 机构
+										li: a(href="/node/keyan/edit") 科研
+										li: a(href="/node/rongyu/edit") 荣誉
+										li: a(href="/node/zhuzuoyuwenzhang/edit") 著作与文章
+										li: a(href="/node/yanlunyuyishi/edit") 言论与轶事
+								li: a(href="/node/keyantuandui/edit") 科研团队
+								li: a(href="/node/zhichituandui/edit") 支持团队
+								li: a(href="/node/jigou/edit") 机构
 						li 邀请
 							ul.branch
-								li: a(href="/article/lianxiwomen/edit") 联系我们
-								li: a(href="/article/zhiyuanzhe/edit") 志愿者
-								li: a(href="/article/juanzhuyuganxie/edit") 捐助与感谢
+								li: a(href="/node/lianxiwomen/edit") 联系我们
+								li: a(href="/node/zhiyuanzhe/edit") 志愿者
+								li: a(href="/node/juanzhuyuganxie/edit") 捐助与感谢
 		.span4
 			.box
 				.box-header

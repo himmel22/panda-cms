@@ -1,0 +1,23 @@
+extends adminLayout
+block head
+	script(type="text/javascript", src="/js/lib/ckeditor/ckeditor.js")
+	script.
+		$(function() {
+			CKEDITOR.replace('nodeContent', {
+				language: 'zh-cn',
+				height: '600px'
+				});
+			});
+block content
+	.row-fluid
+		#content-header.span12
+			h1= '编辑页面： ' + nodeTitle
+	.row-fluid
+		#content-body.span12
+			form(id="edit-node-form", method="POST", action="/node/#{nodeName}/edit")
+				div
+					input(type="text", name="title", value="#{nodeTitle}")
+				div
+					textarea.editor(name="nodeContent")= nodeContent
+				div
+					button.btn.btn-default(type="submit") Submit

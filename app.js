@@ -48,6 +48,9 @@ app.get('/article/:id', article.view);
 app.get('/article/:id/edit', article.editView);
 app.post('/article/:id/edit', article.edit);
 
+app.get('/node/:nodeName/edit', article.editNodeView);
+app.post('/node/:nodeName/edit', article.editNode);
+
 //front pages
 
 http.createServer(app).listen(app.get('port'), function(){
