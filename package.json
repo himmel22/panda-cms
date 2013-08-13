@@ -7,6 +7,9 @@
         "express": "3.x",
         "chromelogger": "",
         "grunt": "",
+        "stylus": "",
+        "nib": "",
+        "jade": "",
         "mongoose": ""
     }
 }

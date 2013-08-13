@@ -38,4 +38,8 @@ html
                         | 帮助
         #content
             .container-fluid
+                if alert
+                    .alert(class="#{alert.type}")
+                        button.close(type="button", data-dismiss="alert") &times;
+                        | #{alert.message}
                 block content

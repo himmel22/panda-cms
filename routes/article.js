@@ -47,8 +47,6 @@ exports.addView = function(req, res) {
     });
 }
 
-
-
 /*
  * 编辑固定页面表单页
  */
@@ -71,7 +69,7 @@ exports.editNodeView = function(req, res) {
             nodeTitle = node.title;
             nodeContent = node.content;
         }
-        console.log(node);
+
         res.render('admin/editNode', {
             title: '编辑固定页面 - ' + nodeTitle,
             nodeName: nodeName,
@@ -81,25 +79,32 @@ exports.editNodeView = function(req, res) {
 
     });
 }
+
 /*
  * 编辑固定页面
  */
-exports.editNode = function(req, res) {
+exports.editNode = function(req, res, next) {
 
     var node = {
-        nodeName: 'panwenshi',
-        title: '1231asdasd',
-        content: '1231231asdasd'
+        nodeName: req.params.nodeName,
+        title: req.body.nodeTitle,
+        content: req.body.nodeContent
     }
-    console.log(node);
 
     Node.findOneAndUpdate(
-        {nodeName: node.nodeName }, 
+        { nodeName: node.nodeName }, 
         node, 
-        {upsert: true}, 
+        { upsert: true }, 
         function(err) {
-            console.log(err);
+
+            if (err) {
+                req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
+            } else {
+                req.session.alert = { message: '修改成功！', type: 'alert-success' };
+            }
+
             res.redirect('/node/' + node.nodeName + '/edit');
+
         }
     );
 }

@@ -29,14 +29,28 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
+
+//set alert message
+app.use(function(req, res, next) {
+	res.locals.alert = req.session.alert;
+	req.session.alert = null;
+	next();
+});
+
 app.use(app.router);
 app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
+//development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+//error page
+app.use(function(err, req, res, next){
+	res.status(500);
+	res.render('error', { error: err });
+});
 
 app.get('/', routes.index);
 app.get('/admin', admin.articles);

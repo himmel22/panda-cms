@@ -11,13 +11,18 @@ block head
 block content
 	.row-fluid
 		#content-header.span12
-			h1= '编辑页面： ' + nodeTitle
+			if nodeTitle
+				h1= '编辑页面： ' + nodeTitle
+			else
+				h1= '编辑页面： ' + nodeName
 	.row-fluid
 		#content-body.span12
-			form(id="edit-node-form", method="POST", action="/node/#{nodeName}/edit")
-				div
-					input(type="text", name="title", value="#{nodeTitle}")
+			form#edit-node-form(method="POST", action="/node/#{nodeName}/edit")
+				.control-group
+					label.control-label.inline(for="nodeTitle") 页面标题：
+					.controls
+						input(type="text", name="nodeTitle", value="#{nodeTitle}")
 				div
 					textarea.editor(name="nodeContent")= nodeContent
-				div
-					button.btn.btn-default(type="submit") Submit
+				.form-actions
+					button.btn.btn-primary(type="submit") 提交
