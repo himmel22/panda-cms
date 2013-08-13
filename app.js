@@ -7,6 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , admin = require('./routes/admin')
   , article = require('./routes/article')
+  , upload = require('./routes/upload')
   , http = require('http')
   , path = require('path')
   , mongoose = require('mongoose');
@@ -25,7 +26,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
+app.use(express.bodyParser({hash: 'md5'}));
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
@@ -64,6 +65,9 @@ app.post('/article/:id/edit', article.edit);
 
 app.get('/node/:nodeName/edit', article.editNodeView);
 app.post('/node/:nodeName/edit', article.editNode);
+
+//upload
+app.post('/upload/image', upload.image);
 
 //front pages
 
