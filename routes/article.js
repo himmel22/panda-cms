@@ -5,29 +5,44 @@
 var Article = require('../models/article');
 var Node = require('../models/node');
 
-exports.add = function(req, res) {
-
-    var article = new Article({
-        name: 'fluffy'
-    });
-
-    // article.save(function (err, fluffy) {
-    //     if (err) {
-    //         res.chrome.log(err);
-    //     }
-    //     res.chrome.log(fluffy);
-
-    //     res.render('admin/index', { title: '内容管理' });
-    // });
-
-
-};
-
 exports.view = function(req, res) {
     res.render('admin/index', {
         title: '内容管理'
     });
 }
+
+/*
+ * 向指定栏目添加文章页面
+ */
+exports.addView = function(req, res) {
+    res.render('admin/addArticle', {
+        title: '添加文章',
+        catalog: req.query.catalog
+    });
+}
+
+/*
+ * 向指定栏目添加文章 POST
+ */
+exports.add = function(req, res) {
+
+    var article = new Article({
+        title: req.body.articleTitle,
+        content:req.body.articleContent,
+        catalog: req.query.catalog
+    });
+
+    article.save(function (err, article) {
+        if (err) {
+            req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
+            res.redirect('back');
+        } else {
+            req.session.alert = { message: '成功添加文章！', type: 'alert-success' };
+            res.redirect('admin');
+        }
+    });
+
+};
 
 exports.editView = function(req, res) {
     res.render('admin/index', {
@@ -36,12 +51,6 @@ exports.editView = function(req, res) {
 }
 
 exports.edit = function(req, res) {
-    res.render('admin/index', {
-        title: '内容管理'
-    });
-}
-
-exports.addView = function(req, res) {
     res.render('admin/index', {
         title: '内容管理'
     });
@@ -81,7 +90,7 @@ exports.editNodeView = function(req, res) {
 }
 
 /*
- * 编辑固定页面
+ * 编辑固定页面 POST
  */
 exports.editNode = function(req, res, next) {
 

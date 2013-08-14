@@ -57,7 +57,7 @@ app.get('/', routes.index);
 app.get('/admin', admin.articles);
 
 //article
-app.get('/catalog/:id/add-article', article.addView);
+app.get('/article/add', article.addView);
 app.post('/article', article.add);
 app.get('/article/:id', article.view);
 app.get('/article/:id/edit', article.editView);
