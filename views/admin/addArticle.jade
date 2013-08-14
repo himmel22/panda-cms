@@ -18,8 +18,8 @@ block content
 				.control-group
 					label.control-label.inline(for="articleTitle") 文章标题：
 					.controls
-						input(type="text", name="articleTitle")
+						input(type="text", name="articleTitle", value=articleTitle)
 				div
-					textarea.editor(name="articleContent")
+					textarea.editor(name="articleContent")= articleContent
 				.form-actions
 					button.btn.btn-primary(type="submit") 提交

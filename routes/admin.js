@@ -1,7 +1,8 @@
-
 /*
  * admin
  */
+
+var Article = require('../models/article');
 
 exports.index = function(req, res){
 
@@ -9,6 +10,10 @@ exports.index = function(req, res){
 
 };
 
+
+/*
+ * 内容管理页面
+ */
 exports.articles = function(req, res){
 
     res.render('admin/articles', { title: '内容管理' });

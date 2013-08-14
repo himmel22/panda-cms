@@ -15,10 +15,17 @@ exports.view = function(req, res) {
  * 向指定栏目添加文章页面
  */
 exports.addView = function(req, res) {
+
     res.render('admin/addArticle', {
         title: '添加文章',
-        catalog: req.query.catalog
+        catalog: req.query.catalog,
+        articleTitle: req.session.articleTitle,
+        articleContent: req.session.articleContent
     });
+
+    res.locals.articleTitle = null;
+    res.locals.articleContent = null;
+
 }
 
 /*
@@ -34,6 +41,8 @@ exports.add = function(req, res) {
 
     article.save(function (err, article) {
         if (err) {
+            req.session.articleTitle = req.body.articleTitle;
+            req.session.articleContent = req.body.articleContent;
             req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
             res.redirect('back');
         } else {
