@@ -16,6 +16,27 @@ exports.index = function(req, res){
  */
 exports.articles = function(req, res){
 
+	var articles = {};
+
+	var query = Article.find({
+		catalog: { $exists: true }
+	});
+
+	query.exec(function (err, docs) {
+		
+		//按catalog分类
+		docs.forEach(function(doc, index) {
+
+			if(articles[doc.catalog] == null) {
+				articles[doc.catalog] = [];
+			} else {
+				articles[doc.catalog].push(doc);
+			}
+
+		});
+
+	});
+
     res.render('admin/articles', { title: '内容管理' });
 
 };
