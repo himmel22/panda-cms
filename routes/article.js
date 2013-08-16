@@ -4,6 +4,7 @@
 
 var Article = require('../models/article');
 var Node = require('../models/node');
+var ArticleHistory = require('../models/articleHistory');
 
 exports.view = function(req, res) {
     res.render('admin/index', {
@@ -59,7 +60,6 @@ exports.add = function(req, res) {
  */
 exports.editView = function(req, res, next) {
 
-
     Article.findById(req.params.id, function(err, article) {
 
         if(err) {
@@ -72,7 +72,7 @@ exports.editView = function(req, res, next) {
                 title: '编辑文章 - ' + article.title,
                 article: article
             });
-            
+
         } else {
             res.send(404);
         }
@@ -86,9 +86,64 @@ exports.editView = function(req, res, next) {
  * 编辑文章 POST
  */
 exports.edit = function(req, res) {
-    res.render('admin/index', {
-        title: '内容管理'
+
+    //保存文章历史记录
+    Article.findById(req.params.id, function(err, article) {
+        saveToHistory(article);
     });
+
+    Article.findByIdAndUpdate(
+        req.params.id, 
+        {
+            title: req.body.articleTitle,
+            content: req.body.articleContent
+        },
+        function(err, article) {
+
+            if (err) {
+                res.locals.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
+            } else {
+                res.locals.alert = { message: '编辑成功！', type: 'alert-success' };
+            }
+
+            res.render('admin/editArticle', {
+                title: '编辑文章 - ' + article.title,
+                article: article
+            });
+        }
+    );
+
+}
+
+/*
+ * 删除文章
+ */
+exports.delete = function(req, res, next) {
+
+    //保存文章历史记录
+    Article.findById(req.params.id, function(err, article) {
+        saveToHistory(article);
+    });
+
+    Article.remove({ _id: req.params.id }, function(err) {
+        if(err) {
+            next(err);
+        }
+    });
+
+    req.session.alert = { message: '已删除！', type: 'alert-success' };
+    res.redirect('admin');
+
+}
+
+function saveToHistory(article) {
+    var articleHistory = new ArticleHistory({
+        title: article.title,
+        content: article.content,
+        catalog: article.catalog,
+        articleId: article._id
+    });
+    articleHistory.save();
 }
 
 /*
@@ -152,3 +207,7 @@ exports.editNode = function(req, res, next) {
         }
     );
 }
+
+
+
+

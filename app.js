@@ -62,6 +62,7 @@ app.post('/article', article.add);
 app.get('/article/:id', article.view);
 app.get('/article/:id/edit', article.editView);
 app.post('/article/:id/edit', article.edit);
+app.get('/article/:id/delete', article.delete);
 
 app.get('/node/:nodeName/edit', article.editNodeView);
 app.post('/node/:nodeName/edit', article.editNode);
