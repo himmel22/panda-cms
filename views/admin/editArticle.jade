@@ -1,0 +1,27 @@
+extends adminLayout
+block head
+	script(type="text/javascript", src="/js/lib/ckeditor/ckeditor.js")
+	script.
+		$(function() {
+			CKEDITOR.replace('articleContent', {
+				height: '500px',
+				filebrowserImageUploadUrl: '/upload/image'
+				});
+			});
+block content
+	.row-fluid
+		#content-header.span12
+			h1 编辑文章: #{article.title}
+	.row-fluid
+		#content-body.span12
+			form#edit-node-form(method="POST", action="/article/#{article._id}/edit")
+				.control-group
+					label.control-label.inline(for="articleTitle") 文章标题：
+					.controls
+						input(type="text", name="articleTitle", value=article.title)
+				div
+					textarea.editor(name="articleContent")= article.content
+				.form-actions
+					button.btn.btn-primary(type="submit") 提交
+					| 
+					a.btn.btn-link(href="/article/#{article._id}/delete") 删除这篇文章

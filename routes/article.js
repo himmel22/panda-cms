@@ -53,12 +53,38 @@ exports.add = function(req, res) {
 
 };
 
-exports.editView = function(req, res) {
-    res.render('admin/index', {
-        title: '内容管理'
+
+/*
+ * 编辑文章页面
+ */
+exports.editView = function(req, res, next) {
+
+
+    Article.findById(req.params.id, function(err, article) {
+
+        if(err) {
+            next(err);
+        }
+
+        if(article) {
+
+            res.render('admin/editArticle', {
+                title: '编辑文章 - ' + article.title,
+                article: article
+            });
+            
+        } else {
+            res.send(404);
+        }
+
     });
+
+
 }
 
+/*
+ * 编辑文章 POST
+ */
 exports.edit = function(req, res) {
     res.render('admin/index', {
         title: '内容管理'

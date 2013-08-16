@@ -37,30 +37,30 @@ block content
 							span
 								a(href="/article/add?catalog=keyanxiangmu") &nbsp;&nbsp;添加文章 +
 							ul.branch
-								li: a(href="/article/1/edit") text
-								li: a(href="/article/1/edit") text
-								li: a(href="/article/1/edit") text
+								if articles['keyanxiangmu']
+									each article in articles['keyanxiangmu']
+										li: a(href="/article/#{article._id}/edit")= article.title
 						li 科普项目
 							span
 								a(href="/article/add?catalog=kepuxiangmu") &nbsp;&nbsp;添加文章 +
 							ul.branch
-								li: a(href="/article/1/edit") text
-								li: a(href="/article/1/edit") text
-								li: a(href="/article/1/edit") text
+								if articles['kepuxiangmu']
+									each article in articles['kepuxiangmu']
+										li: a(href="/article/#{article._id}/edit")= article.title
 						li 文化项目
 							span
 								a(href="/article/add?catalog=wenhuaxiangmu") &nbsp;&nbsp;添加文章 +
 							ul.branch
-								li: a(href="/article/1/edit") text
-								li: a(href="/article/1/edit") text
-								li: a(href="/article/1/edit") text
+								if articles['wenhuaxiangmu']
+									each article in articles['wenhuaxiangmu']
+										li: a(href="/article/#{article._id}/edit")= article.title
 						li 公益项目
 							span
 								a(href="/article/add?catalog=gongyixiangmu") &nbsp;&nbsp;添加文章 +
 							ul.branch
-								li: a(href="/article/1/edit") text
-								li: a(href="/article/1/edit") text
-								li: a(href="/article/1/edit") text
+								if articles['gongyixiangmu']
+									each article in articles['gongyixiangmu']
+										li: a(href="/article/#{article._id}/edit")= article.title
 		.span4
 			.box
 				.box-header
@@ -69,11 +69,9 @@ block content
 						a(href="/article/add?catalog=xuanze") 添加文章 +
 				.box-body
 					ul.list
-						li: a(href="/article/1/edit") 缘起：大熊猫
-						li: a(href="/article/1/edit") 坚守：白头叶猴
-						li: a(href="/article/1/edit") 抉择：中华白海豚
-						li: a(href="/article/1/edit") 礼物：化石发掘
-						li: a(href="/article/1/edit") 机会：生物多样性
+						if articles['xuanze']
+							each article in articles['xuanze']
+								li: a(href="/article/#{article._id}/edit")= article.title
 		.span4
 			.box
 				.box-header
@@ -82,10 +80,9 @@ block content
 						a(href="/article/add?catalog=yedi") 添加文章 +
 				.box-body
 					ul.list
-						li: a(href="/article/1/edit") 寒冷的西部群山
-						li: a(href="/article/1/edit") 喀斯特石山丛林
-						li: a(href="/article/1/edit") 北部湾浅海湿地
-		
+						if articles['yedi']
+							each article in articles['yedi']
+								li: a(href="/article/#{article._id}/edit")= article.title
 
 
 				
