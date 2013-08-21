@@ -1,16 +1,19 @@
-#page-top{background-color:#f6f5f3;}
-#page-top .top-bg{width:1200px;height:100px;margin-left:-100px;padding-left:100px;background:url("../images/pageTop.jpg") no-repeat}
+html{background-color:#555}
+.container{margin-right:auto;margin-left:auto;width:1200px;overflow:hidden}
+#page-top{min-width:1200px;background-color:#f6f5f3;}
+#page-top .top-bg{width:1200px;height:100px;background:url("../images/pageTop.jpg") no-repeat}
 #page-top #logo a{display:block;width:300px;height:100px}
 #page-top #top-tools{text-align:right;}
 #page-top #top-tools #top-nav{margin-top:20px;}
 #page-top #top-tools #top-nav a{color:#666}
-#slides{background-color:#111;height:366px;overflow:hidden;}
-#slides .carousel{margin-bottom:0;width:1200px;margin-left:-100px}
+#slides{min-width:1200px;background-color:#111;height:366px;overflow:hidden;}
+#slides .carousel{margin-bottom:0;width:1200px}
 #slides .carousel-control{display:none}
 #slides .carousel-indicators{top:340px;right:120px;}
 #slides .carousel-indicators li{margin-left:15px;cursor:pointer}
 #slides .item img{margin:auto}
-#highlights{padding-top:20px;padding-bottom:20px;background-color:#f6f5f3;}
+#highlights{min-width:1200px;padding-top:20px;padding-bottom:20px;background-color:#f6f5f3;}
+#highlights .container{width:940px}
 #highlights .content{position:relative;}
 #highlights .content h2{line-height:18px;color:#8c523f;font-size:14px;font-weight:bold;}
 #highlights .content h2 a{color:#8c523f;font-size:14px;font-weight:bold}
@@ -18,12 +21,13 @@
 #highlights .content .more{background-color:#856d54;color:#fff;border-radius:5px;padding:2px 5px}
 #highlights #contact ul{padding:0;margin:0}
 #highlights #contact li{list-style-type:none}
-#footer{height:250px;background-color:#555;color:#fff;}
+#footer{min-width:1200px;height:250px;background-color:#555;color:#fff;}
+#footer .container{width:940px}
 #footer .footer-logo{width:175px;height:30px;margin-top:10px;background:url("../images/footerLogo.png") no-repeat}
 #footer .copyright{text-align:right;}
 #footer .copyright span{line-height:50px}
-#navbar{background-color:#e9e8e8;border-top:1px solid #ccc;border-bottom:1px solid #ccc}
-#nav{margin:0;padding:0;list-style:none;font-weight:bold;float:left;width:100%;position:relative;z-index:5;}
+#navbar{min-width:1200px;background-color:#e9e8e8;border-top:1px solid #ccc;border-bottom:1px solid #ccc}
+#nav{margin:0;margin-left:130px;padding:0;list-style:none;font-weight:bold;float:left;width:100%;position:relative;z-index:5;}
 #nav li{float:left;margin-right:10px;position:relative}
 #nav a{display:block;padding:5px 15px;width:100px;color:#666;text-decoration:none;background:#e9e8e8 url("../images/navMenu.png") no-repeat;text-indent:-9999px;}
 #nav a.xuanze{background-position:10px 5px}

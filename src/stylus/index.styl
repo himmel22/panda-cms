@@ -1,12 +1,20 @@
 @import vars
 
+html
+    background-color: #555
+
+.container
+    margin-right: auto
+    margin-left: auto
+    width: 1200px
+    overflow: hidden
+
 #page-top
+    min-width: 1200px
     background-color: #f6f5f3
     .top-bg
         width: 1200px
         height: 100px
-        margin-left: -100px
-        padding-left: 100px
         background: url("../images/pageTop.jpg") no-repeat
     #logo a
         display: block
@@ -21,13 +29,13 @@
                 color: #666
 
 #slides
+    min-width: 1200px
     background-color: #111
     height: 366px
     overflow: hidden
     .carousel
         margin-bottom: 0px
         width: 1200px
-        margin-left: -100px
     .carousel-control
         display: none
     .carousel-indicators
@@ -41,9 +49,12 @@
             margin: auto
 
 #highlights
+    min-width: 1200px
     padding-top: 20px
     padding-bottom: 20px
     background-color: #F6F5F3
+    .container
+        width: 940px
     .content
         position: relative
         h2
@@ -73,9 +84,12 @@
             list-style-type: none
 
 #footer
+    min-width: 1200px
     height: 250px
     background-color: #555
     color: #FFF
+    .container
+        width: 940px
     .footer-logo
         width: 175px
         height: 30px
@@ -88,12 +102,14 @@
 
 
 #navbar
+    min-width: 1200px
     background-color: #E9E8E8
     border-top: 1px solid #ccc
     border-bottom: 1px solid #ccc
 
 #nav
     margin: 0px
+    margin-left: 130px
     padding: 0px
     list-style: none
     font-weight: bold
