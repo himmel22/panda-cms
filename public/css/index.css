@@ -1,5 +1,5 @@
 html{background-color:#555}
-.container{margin-right:auto;margin-left:auto;width:1200px;overflow:hidden}
+.container{margin-right:auto;margin-left:auto;width:1200px}
 #page-top{min-width:1200px;background-color:#f6f5f3;}
 #page-top .top-bg{width:1200px;height:100px;background:url("../images/pageTop.jpg") no-repeat}
 #page-top #logo a{display:block;width:300px;height:100px}
@@ -21,11 +21,11 @@ html{background-color:#555}
 #highlights .content .more{background-color:#856d54;color:#fff;border-radius:5px;padding:2px 5px}
 #highlights #contact ul{padding:0;margin:0}
 #highlights #contact li{list-style-type:none}
-#footer{min-width:1200px;height:250px;background-color:#555;color:#fff;}
+#footer{min-width:1200px;height:100px;background-color:#555;color:#fff;}
 #footer .container{width:940px}
-#footer .footer-logo{width:175px;height:30px;margin-top:10px;background:url("../images/footerLogo.png") no-repeat}
-#footer .copyright{text-align:right;}
-#footer .copyright span{line-height:50px}
+#footer .footer-logo{width:175px;height:30px;margin-top:15px;background:url("../images/footerLogo.png") no-repeat}
+#footer .site-info{text-align:right;margin-top:10px;}
+#footer .site-info p{margin-bottom:5px}
 #navbar{min-width:1200px;background-color:#e9e8e8;border-top:1px solid #ccc;border-bottom:1px solid #ccc}
 #nav{margin:0;margin-left:130px;padding:0;list-style:none;font-weight:bold;float:left;width:100%;position:relative;z-index:5;}
 #nav li{float:left;margin-right:10px;position:relative}
