@@ -10,6 +10,7 @@
         "stylus": "",
         "nib": "",
         "jade": "",
-        "mongoose": ""
+        "mongoose": "",
+        "imagemagick": ""
     }
 }
