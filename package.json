@@ -1,16 +1,18 @@
 {
-    "name": "panda-cms",
-    "description": "it's a panda",
-    "version": "0.0.1",
-    "private": true,
-    "dependencies": {
-        "express": "3.x",
-        "chromelogger": "",
-        "grunt": "",
-        "stylus": "",
-        "nib": "",
-        "jade": "",
-        "mongoose": "",
-        "imagemagick": ""
-    }
+  "name": "panda-cms",
+  "description": "it's a panda",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "chromelogger": "",
+    "grunt": "",
+    "stylus": "",
+    "nib": "",
+    "jade": "",
+    "mongoose": "",
+    "imagemagick": "",
+    "moment": "",
+    "string": ""
+  }
 }

@@ -21,21 +21,21 @@ exports.articles = function(req, res) {
 	var articles = {};
 
 	var query = Article.find({
-		catalog: {
+		column: {
 			$exists: true
 		}
 	});
 
 	query.exec(function(err, docs) {
 
-		//按catalog分类
+		//按column分类
 		docs.forEach(function(doc, index) {
 
-			if (articles[doc.catalog] == null) {
-				articles[doc.catalog] = [];
+			if (articles[doc.column] == null) {
+				articles[doc.column] = [];
 			} 
 			
-			articles[doc.catalog].push(doc);
+			articles[doc.column].push(doc);
 
 		});
 

@@ -19,7 +19,7 @@ exports.addView = function(req, res) {
 
     res.render('admin/addArticle', {
         title: '添加文章',
-        catalog: req.query.catalog,
+        column: req.query.column,
         articleTitle: req.session.articleTitle,
         articleContent: req.session.articleContent
     });
@@ -37,9 +37,8 @@ exports.add = function(req, res) {
     var article = new Article({
         title: req.body.articleTitle,
         content:req.body.articleContent,
-        catalog: req.query.catalog
+        column: req.query.column
     });
-
     article.save(function (err, article) {
         if (err) {
             req.session.articleTitle = req.body.articleTitle;
@@ -140,7 +139,8 @@ function saveToHistory(article) {
     var articleHistory = new ArticleHistory({
         title: article.title,
         content: article.content,
-        catalog: article.catalog,
+        column: article.column,
+        album: article.album,
         articleId: article._id
     });
     articleHistory.save();

@@ -35,28 +35,28 @@ block content
 					ul.tree-list
 						li 科研项目
 							span
-								a(href="/article/add?catalog=keyanxiangmu") &nbsp;&nbsp;添加文章 +
+								a(href="/article/add?column=keyanxiangmu") &nbsp;&nbsp;添加文章 +
 							ul.branch
 								if articles['keyanxiangmu']
 									each article in articles['keyanxiangmu']
 										li: a(href="/article/#{article._id}/edit")= article.title
 						li 科普项目
 							span
-								a(href="/article/add?catalog=kepuxiangmu") &nbsp;&nbsp;添加文章 +
+								a(href="/article/add?column=kepuxiangmu") &nbsp;&nbsp;添加文章 +
 							ul.branch
 								if articles['kepuxiangmu']
 									each article in articles['kepuxiangmu']
 										li: a(href="/article/#{article._id}/edit")= article.title
 						li 文化项目
 							span
-								a(href="/article/add?catalog=wenhuaxiangmu") &nbsp;&nbsp;添加文章 +
+								a(href="/article/add?column=wenhuaxiangmu") &nbsp;&nbsp;添加文章 +
 							ul.branch
 								if articles['wenhuaxiangmu']
 									each article in articles['wenhuaxiangmu']
 										li: a(href="/article/#{article._id}/edit")= article.title
 						li 公益项目
 							span
-								a(href="/article/add?catalog=gongyixiangmu") &nbsp;&nbsp;添加文章 +
+								a(href="/article/add?column=gongyixiangmu") &nbsp;&nbsp;添加文章 +
 							ul.branch
 								if articles['gongyixiangmu']
 									each article in articles['gongyixiangmu']
@@ -66,7 +66,7 @@ block content
 				.box-header
 					h2 栏目: 选择
 					.ops
-						a(href="/article/add?catalog=xuanze") 添加文章 +
+						a(href="/article/add?column=xuanze") 添加文章 +
 				.box-body
 					ul.list
 						if articles['xuanze']
@@ -77,7 +77,7 @@ block content
 				.box-header
 					h2 栏目: 野地
 					.ops
-						a(href="/article/add?catalog=yedi") 添加文章 +
+						a(href="/article/add?column=yedi") 添加文章 +
 				.box-body
 					ul.list
 						if articles['yedi']

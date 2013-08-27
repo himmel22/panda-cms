@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var ArticleHistorySchema = mongoose.Schema({
     title: String,
     content: String,
-    catalog: String,
+    column: String,
+    album: Array,
     articleId: String
 });
 
