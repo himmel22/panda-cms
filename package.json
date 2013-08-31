@@ -13,6 +13,7 @@
     "mongoose": "",
     "imagemagick": "",
     "moment": "",
-    "string": ""
+    "string": "",
+    "async": "~0.2.9"
   }
 }

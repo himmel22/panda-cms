@@ -6,64 +6,6 @@ block head
             });
         
 block content
-    #page-top
-        .container
-            .top-bg
-                #logo
-                    a(href="/")
-                //- #top-tools
-                //-     #top-nav
-                //-         a(href="/") 新闻
-                //-         span &nbsp;|&nbsp;
-                //-         a(href="/") 论坛
-                //-     #top-search
-    #navbar
-        .container
-            ul#nav
-                li
-                    a.xuanze(href="/column/xuanze") 选择
-                    ul
-                        if articles['xuanze']
-                            each article in articles['xuanze']
-                                li: a(href="/article/#{article._id}/edit")= article.title
-                li
-                    a.yedi(href="/column/yedi") 野地
-                    ul
-                        if articles['yedi']
-                            each article in articles['yedi']
-                                li: a(href="/article/#{article._id}/edit")= article.title
-                li
-                    a.xingdong(href="/column/xingdong") 行动
-                    ul
-                        li: a(href="/column/keyan") 科研项目
-                        li: a(href="/column/kepu") 科普项目
-                        li: a(href="/column/wenhua") 文化项目
-                        li: a(href="/column/gongyi") 公益项目
-                li
-                    a.tuandui(href="/node/tuandui") 团队
-                    ul
-                        li: a(href="/node/panwenshi") 潘文石
-                        li: a(href="/node/keyan")   ◇  科研  
-                        li: a(href="/node/rongyu")   ◇  荣誉  
-                        li: a(href="/node/zhuzuoyuwenzhang")   ◇  著作与文章  
-                        li: a(href="/node/yanlunyuyishi")   ◇  言论与轶事  
-                        li: a(href="/node/keyantuandui") 科研团队
-                        li: a(href="/node/zhichituandui") 支持团队
-                        li: a(href="/node/jigou") 机构
-                li
-                    a.fenxiang_news(href="#") 分享
-                    ul
-                        li: a(href="#") 新闻
-                        li: a(href="#") 图片
-                        li: a(href="#") 视频
-                        li: a(href="#") 资料
-                        li: a(href="#") 专辑
-                li
-                    a.yaoqing(href="/node/lianxiwomen") 邀请
-                    ul
-                        li: a(href="/node/lianxiwomen") 联系我们
-                        li: a(href="/node/zhiyuanzhe") 志愿者
-                        li: a(href="/node/juanzhuyuganxie") 捐助与感谢
     #slides
         .container
             #carousel.carousel.slide
@@ -88,21 +30,21 @@ block content
             .row
                 .content-block.span4
                     h3 野地
-                    a.image(href="/article/#{articles['yedi'][0]._id}/edit")
+                    a.image(href="/article/#{articles['yedi'][0]._id}")
                         img(src="images/content01.png", alt="#")
                     .content
                         h4 
-                            a(href="/article/#{articles['yedi'][0]._id}/edit")= articles['yedi'][0].title
+                            a(href="/article/#{articles['yedi'][0]._id}")= articles['yedi'][0].title
                         .time= moment(articles['yedi'][0]._id.getTimestamp()).format('YYYY-MM-DD')
                         p= S(articles['yedi'][0].content).stripTags().decodeHTMLEntities().trim().s.substring(0, 45) + '...'
                         a.more(href="/column/yedi") more
                 .content-block.span4
                     h3 行动
-                    a.image(href="/article/#{articles['xingdong'][0]._id}/edit")
+                    a.image(href="/article/#{articles['xingdong'][0]._id}")
                         img(src="images/content02.png", alt="#")
                     .content
                         h4 
-                            a(href="/article/#{articles['xingdong'][0]._id}/edit")= articles['xingdong'][0].title
+                            a(href="/article/#{articles['xingdong'][0]._id}")= articles['xingdong'][0].title
                         .time= moment(articles['xingdong'][0]._id.getTimestamp()).format('YYYY-MM-DD')
                         p= S(articles['xingdong'][0].content).stripTags().decodeHTMLEntities().trim().s.substring(0, 45) + '...'
                         a.more(href="/column/xingdong") more
@@ -118,15 +60,3 @@ block content
                             li 地址：北京大学保护生物学中心
                             li 邮编：1000871
                             li 电话：+86-10-62752721
-
-    #footer
-        .container
-            .row
-                .span4
-                    .footer-logo
-                .span8
-                    .site-info
-                        p
-                            | 联系我们: 地址：北京大学保护生物学中心 邮编：1000871 电话：+86-10-62752721
-                        p
-                            | Copyright 2011 回响国际传媒 Echo International Media Co.Ltd  京ICP备0600483号

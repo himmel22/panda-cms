@@ -1,15 +1,37 @@
 /*
  * article
  */
-
+var async = require('async')
 var Article = require('../models/article');
 var Node = require('../models/node');
 var ArticleHistory = require('../models/articleHistory');
 
 exports.view = function(req, res) {
-    res.render('admin/index', {
-        title: '内容管理'
+
+    async.parallel({
+        
+        articles: function(callback) {
+            Article.findArticleGroupByColumn(function(err, articles) {
+                callback(err, articles);
+            });
+        },
+        article: function(callback) {
+            Article.findById(req.params.id, function(err, article) {
+                callback(err, article)
+            });
+        }
+
+    }, 
+    function(err, results) {
+
+        res.render('article', {
+            title: results.article.title,
+            articles: results.articles,
+            article: results.article
+        });
+        
     });
+
 }
 
 /*

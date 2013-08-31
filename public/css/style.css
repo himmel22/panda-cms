@@ -1,1 +1,30 @@
 body{background-color:#fff;margin:0;padding:0}
+#page-top{min-width:1200px;background-color:#f6f5f3;}
+#page-top .top-bg{width:1200px;height:100px;background:url("../images/pageTop.jpg") no-repeat}
+#page-top #logo a{display:block;width:300px;height:100px}
+#page-top #top-tools{text-align:right;}
+#page-top #top-tools #top-nav{margin-top:20px;}
+#page-top #top-tools #top-nav a{color:#666}
+#navbar{min-width:1200px;background-color:#e9e8e8;border-top:1px solid #ccc;border-bottom:1px solid #ccc}
+#nav{margin:0;margin-left:130px;padding:0;list-style:none;font-weight:bold;float:left;width:100%;position:relative;z-index:5;}
+#nav li{float:left;margin-right:10px;position:relative}
+#nav a{display:block;padding:5px 15px;width:100px;color:#666;text-decoration:none;background:#e9e8e8 url("../images/navMenu.png") no-repeat;text-indent:-9999px;}
+#nav a.xuanze{background-position:10px 5px}
+#nav a.yedi{background-position:-135px 5px}
+#nav a.xingdong{background-position:-282px 5px}
+#nav a.tuandui{background-position:-430px 5px}
+#nav a.fenxiang_news{background-position:-576px 5px}
+#nav a.yaoqing{background-position:-723px 5px}
+#nav a:hover{color:#000;background-color:#fff;text-decoration:underline}
+#nav ul{margin:0;margin-top:1px;padding:0;background:#fff;background:rgba(255,255,255,0);list-style:none;position:absolute;left:-9999px}
+#nav ul li{float:none}
+#nav ul a{background-image:none;text-indent:0;white-space:nowrap}
+#nav li:hover ul{left:0}
+#nav li:hover a{text-decoration:underline}
+#nav li:hover ul a{text-decoration:none}
+#nav li:hover ul li a:hover{background:#fff}
+#footer{min-width:1200px;height:100px;background-color:#555;color:#fff;}
+#footer .container{width:940px}
+#footer .footer-logo{width:175px;height:30px;margin-top:15px;background:url("../images/footerLogo.png") no-repeat}
+#footer .site-info{text-align:right;margin-top:10px;}
+#footer .site-info p{margin-bottom:5px}
