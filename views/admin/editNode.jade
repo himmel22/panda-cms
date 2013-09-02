@@ -17,7 +17,7 @@ block content
 				h1= '编辑页面： ' + nodeName
 	.row-fluid
 		#content-body.span12
-			form#edit-node-form(method="POST", action="/node/#{nodeName}/edit")
+			form#edit-node-form(method="POST", action="/node/#{nodeName}/edit?column=#{nodeColumn}")
 				.control-group
 					label.control-label.inline(for="nodeTitle") 页面标题：
 					.controls

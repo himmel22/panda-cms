@@ -7,6 +7,8 @@ var express = require('express')
   , routes = require('./routes')
   , admin = require('./routes/admin')
   , article = require('./routes/article')
+  , node = require('./routes/node')
+  , column = require('./routes/column')
   , upload = require('./routes/upload')
   , http = require('http')
   , path = require('path')
@@ -16,9 +18,6 @@ var app = express();
 
 //连接数据库
 mongoose.connect('mongodb://localhost/panda_dev')
-
-//chrome console.log
-app.use(require('chromelogger').middleware);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -64,9 +63,11 @@ app.get('/article/:id/edit', article.editView);
 app.post('/article/:id/edit', article.edit);
 app.get('/article/:id/delete', article.delete);
 
-app.get('/node/:nodeName/edit', article.editNodeView);
-app.post('/node/:nodeName/edit', article.editNode);
+app.get('/node/:nodeName', node.viewNode);
+app.get('/node/:nodeName/edit', node.editNodeView);
+app.post('/node/:nodeName/edit', node.editNode);
 
+app.get('/column/:columnId', column.view);
 //upload
 app.post('/upload/image', upload.image);
 

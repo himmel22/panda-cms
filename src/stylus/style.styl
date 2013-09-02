@@ -81,10 +81,11 @@ body
     /*--- DROPDOWN ---*/
     ul
         margin: 0px
-        margin-top: 1px
+        margin-top: 0px
         padding: 0px
         background: #fff
         background: rgba(255,255,255,0);
+        border-top: 1px solid #cccccc
         list-style: none
         position: absolute
         left:-9999px
@@ -106,21 +107,38 @@ body
 #page-body
 	padding-top: 20px
 	padding-bottom: 20px
+	background-color: #fcfcfc
 
 #side-nav
+	padding-bottom: 20px
 	h2
 		font-weight: normal
 		color: #3f8fb9
+		.back-to-home
+			float: right
+			font-size: 12px
+			a
+				color: #666
+				&:hover
+					color: #0088cc
 	ul
 		list-style: none
 		margin: 0
 		padding: 0
 		li
 			line-height: 25px
+			padding-left: 5px
+			&.active
+				background-color: #f1f1f1
 		a
 			color: #666
 			&:hover
 				color: #0088cc
+
+#side-bar
+	.donate
+		padding-left: 15px
+		padding-bottom: 20px
 
 #footer
     min-width: 1200px

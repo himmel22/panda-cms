@@ -3,7 +3,6 @@
  */
 var async = require('async')
 var Article = require('../models/article');
-var Node = require('../models/node');
 var ArticleHistory = require('../models/articleHistory');
 
 exports.view = function(req, res) {
@@ -29,7 +28,6 @@ exports.view = function(req, res) {
             articles: results.articles,
             article: results.article
         });
-        
     });
 
 }
@@ -166,66 +164,4 @@ function saveToHistory(article) {
         articleId: article._id
     });
     articleHistory.save();
-}
-
-/*
- * 编辑固定页面表单页
- */
-exports.editNodeView = function(req, res) {
-
-    var nodeName = req.params.nodeName;
-
-    Node.findOne({
-        nodeName: nodeName
-    }, function(err, node) {
-
-        if (err) {
-            console.log(err);
-            return err;
-        }
-
-        var nodeTitle = '';
-        var nodeContent = '';
-        if (node) {
-            nodeTitle = node.title;
-            nodeContent = node.content;
-        }
-
-        res.render('admin/editNode', {
-            title: '编辑固定页面 - ' + nodeTitle,
-            nodeName: nodeName,
-            nodeTitle: nodeTitle,
-            nodeContent: nodeContent
-        });
-
-    });
-}
-
-/*
- * 编辑固定页面 POST
- */
-exports.editNode = function(req, res, next) {
-
-    var node = {
-        nodeName: req.params.nodeName,
-        title: req.body.nodeTitle,
-        content: req.body.nodeContent
-    }
-
-    Node.findOneAndUpdate(
-        { nodeName: node.nodeName }, 
-        node, 
-        { upsert: true }, 
-        function(err) {
-
-            if (err) {
-                req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
-            } else {
-                req.session.alert = { message: '修改成功！', type: 'alert-success' };
-            }
-
-            res.redirect('/node/' + node.nodeName + '/edit');
-
-        }
-    );
 }

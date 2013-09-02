@@ -4,7 +4,8 @@ var ArticleSchema = mongoose.Schema({
     title: String,
     content: String,
     column: String,
-    album: Array
+    album: Array,
+    nodeName: String
 });
 
 
@@ -46,29 +47,35 @@ ArticleSchema.statics.findArticleGroupByColumn = function (callback) {
 
 ArticleSchema.virtual('columnName').get(function () {
 	switch (this.column) {
-		case 'xuanze':
-		return '选择';
-		break;
-		case 'yedi':
-		return '选择';
-		break;
-		case 'keyanxiangmu':
-		return '科研项目';
-		break;
-		case 'kepuxiangmu':
-		return '科普项目';
-		break;
-		case 'wenhuaxiangmu':
-		return '文化项目';
-		break;
-		case 'gongyixiangmu':
-		return '公益项目';
-		break;
-		case 'tuandui':
-		return '团队';
-		break;
-		default:
-		return '栏目'
+        case 'xuanze':
+        return '选择';
+        break;
+        case 'yedi':
+        return '野地';
+        break;
+        case 'xingdong':
+        return '行动';
+        break;
+        case 'keyanxiangmu':
+        return '科研项目';
+        break;
+        case 'kepuxiangmu':
+        return '科普项目';
+        break;
+        case 'wenhuaxiangmu':
+        return '文化项目';
+        break;
+        case 'gongyixiangmu':
+        return '公益项目';
+        break;
+        case 'tuandui':
+        return '团队';
+        break;
+        case 'yaoqing':
+        return '邀请';
+        break;
+        default:
+        return '栏目';
 	}
 });
 

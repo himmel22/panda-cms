@@ -5,7 +5,8 @@ var ArticleHistorySchema = mongoose.Schema({
     content: String,
     column: String,
     album: Array,
-    articleId: String
+    articleId: String,
+    nodeName: String
 });
 
 module.exports = mongoose.model('ArticleHistory', ArticleHistorySchema);

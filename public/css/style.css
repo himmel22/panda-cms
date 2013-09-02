@@ -19,19 +19,25 @@ body{margin:0;padding:0}
 #nav a.fenxiang_news{background-position:-576px 5px}
 #nav a.yaoqing{background-position:-723px 5px}
 #nav a:hover{color:#000;background-color:#fff;text-decoration:underline}
-#nav ul{margin:0;margin-top:1px;padding:0;background:#fff;background:rgba(255,255,255,0);list-style:none;position:absolute;left:-9999px}
+#nav ul{margin:0;margin-top:0;padding:0;background:#fff;background:rgba(255,255,255,0);border-top:1px solid #ccc;list-style:none;position:absolute;left:-9999px}
 #nav ul li{float:none}
 #nav ul a{background-image:none;text-indent:0;white-space:nowrap}
 #nav li:hover ul{left:0}
 #nav li:hover a{text-decoration:underline}
 #nav li:hover ul a{text-decoration:none}
 #nav li:hover ul li a:hover{background:#fff}
-#page-body{padding-top:20px;padding-bottom:20px}
-#side-nav h2{font-weight:normal;color:#3f8fb9}
+#page-body{padding-top:20px;padding-bottom:20px;background-color:#fcfcfc}
+#side-nav{padding-bottom:20px;}
+#side-nav h2{font-weight:normal;color:#3f8fb9;}
+#side-nav h2 .back-to-home{float:right;font-size:12px;}
+#side-nav h2 .back-to-home a{color:#666;}
+#side-nav h2 .back-to-home a:hover{color:#08c}
 #side-nav ul{list-style:none;margin:0;padding:0;}
-#side-nav ul li{line-height:25px}
+#side-nav ul li{line-height:25px;padding-left:5px;}
+#side-nav ul li.active{background-color:#f1f1f1}
 #side-nav ul a{color:#666;}
 #side-nav ul a:hover{color:#08c}
+#side-bar .donate{padding-left:15px;padding-bottom:20px}
 #footer{min-width:1200px;height:100px;background-color:#555;color:#fff;}
 #footer .container{width:940px}
 #footer .footer-logo{width:175px;height:30px;margin-top:15px;background:url("../images/footerLogo.png") no-repeat}

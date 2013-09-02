@@ -1,0 +1,26 @@
+extends layout
+block head
+    script.
+        $(document).ready(function(){
+            $('.carousel').carousel();
+            });
+block content
+    #page-body
+        .container
+            .row
+                .span2
+                    #side-nav
+                        h2= columnName
+                            span.back-to-home
+                                a(href="/") 返回首页<
+                        ul
+                            if articles[column]
+                                each art in articles[column]
+                                    if art
+                                        if art.nodeName
+                                            li: a(href="/node/#{art.nodeName}")= art.title
+                                        else
+                                            li: a(href="/article/#{art._id}")= art.title
+                    include weiboshow
+                .span10
+                    h2= columnName
