@@ -6,3 +6,17 @@ block head
             });
         
 block content
+    #page-body
+        .container
+            .row
+                .span2
+                    #side-nav
+                        h2= article.columnName
+                        ul
+                            each art in articles[article.column]
+                                li: a(href="/article/#{art._id}")= art.title
+                .span7
+                    h2= article.title
+                    .content!= article.content
+                .span3
+                    div(style="background-color:#fcfcfc;height:500px")

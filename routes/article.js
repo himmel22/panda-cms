@@ -229,7 +229,3 @@ exports.editNode = function(req, res, next) {
         }
     );
 }
-
-
-
-

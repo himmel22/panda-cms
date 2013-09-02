@@ -1,11 +1,14 @@
-body{background-color:#fff;margin:0;padding:0}
+html{background-color:#555}
+body{margin:0;padding:0}
 #page-top{min-width:1200px;background-color:#f6f5f3;}
+#page-top .container{margin-right:auto;margin-left:auto;width:1200px}
 #page-top .top-bg{width:1200px;height:100px;background:url("../images/pageTop.jpg") no-repeat}
 #page-top #logo a{display:block;width:300px;height:100px}
 #page-top #top-tools{text-align:right;}
 #page-top #top-tools #top-nav{margin-top:20px;}
 #page-top #top-tools #top-nav a{color:#666}
 #navbar{min-width:1200px;background-color:#e9e8e8;border-top:1px solid #ccc;border-bottom:1px solid #ccc}
+#navbar .container{margin-right:auto;margin-left:auto;width:1200px}
 #nav{margin:0;margin-left:130px;padding:0;list-style:none;font-weight:bold;float:left;width:100%;position:relative;z-index:5;}
 #nav li{float:left;margin-right:10px;position:relative}
 #nav a{display:block;padding:5px 15px;width:100px;color:#666;text-decoration:none;background:#e9e8e8 url("../images/navMenu.png") no-repeat;text-indent:-9999px;}
@@ -23,6 +26,12 @@ body{background-color:#fff;margin:0;padding:0}
 #nav li:hover a{text-decoration:underline}
 #nav li:hover ul a{text-decoration:none}
 #nav li:hover ul li a:hover{background:#fff}
+#page-body{padding-top:20px;padding-bottom:20px}
+#side-nav h2{font-weight:normal;color:#3f8fb9}
+#side-nav ul{list-style:none;margin:0;padding:0;}
+#side-nav ul li{line-height:25px}
+#side-nav ul a{color:#666;}
+#side-nav ul a:hover{color:#08c}
 #footer{min-width:1200px;height:100px;background-color:#555;color:#fff;}
 #footer .container{width:940px}
 #footer .footer-logo{width:175px;height:30px;margin-top:15px;background:url("../images/footerLogo.png") no-repeat}
