@@ -31,24 +31,26 @@ block content
             .row
                 .content-block.span4
                     h3 野地
-                    a.image(href="/article/#{articles['yedi'][0]._id}")
-                        img(src="images/content01.png", alt="#")
-                    .content
-                        h4 
-                            a(href="/article/#{articles['yedi'][0]._id}")= articles['yedi'][0].title
-                        .time= moment(articles['yedi'][0]._id.getTimestamp()).format('YYYY-MM-DD')
-                        p= S(articles['yedi'][0].content).stripTags().decodeHTMLEntities().trim().s.substring(0, 45) + '...'
-                        a.more(href="/column/yedi") more
+                    if articles['yedi']
+                        a.image(href="/article/#{articles['yedi'][0]._id}")
+                            img(src="images/content01.png", alt="#")
+                        .content
+                            h4 
+                                a(href="/article/#{articles['yedi'][0]._id}")= articles['yedi'][0].title
+                            .time= moment(articles['yedi'][0]._id.getTimestamp()).format('YYYY-MM-DD')
+                            p= S(articles['yedi'][0].content).stripTags().decodeHTMLEntities().trim().s.substring(0, 45) + '...'
+                            a.more(href="/column/yedi") more
                 .content-block.span4
                     h3 行动
-                    a.image(href="/article/#{articles['xingdong'][0]._id}")
-                        img(src="images/content02.png", alt="#")
-                    .content
-                        h4 
-                            a(href="/article/#{articles['xingdong'][0]._id}")= articles['xingdong'][0].title
-                        .time= moment(articles['xingdong'][0]._id.getTimestamp()).format('YYYY-MM-DD')
-                        p= S(articles['xingdong'][0].content).stripTags().decodeHTMLEntities().trim().s.substring(0, 45) + '...'
-                        a.more(href="/column/xingdong") more
+                    if articles['xingdong'][0]
+                        a.image(href="/article/#{articles['xingdong'][0]._id}")
+                            img(src="images/content02.png", alt="#")
+                        .content
+                            h4 
+                                a(href="/article/#{articles['xingdong'][0]._id}")= articles['xingdong'][0].title
+                            .time= moment(articles['xingdong'][0]._id.getTimestamp()).format('YYYY-MM-DD')
+                            p= S(articles['xingdong'][0].content).stripTags().decodeHTMLEntities().trim().s.substring(0, 45) + '...'
+                            a.more(href="/column/xingdong") more
                 .content-block.span4#contact
                     h3 团队
                     a.image(href="/node/tuandui")

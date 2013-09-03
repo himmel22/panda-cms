@@ -1,4 +1,5 @@
 #slides{min-width:1200px;background-color:#111;height:366px;overflow:hidden;}
+#slides .container{margin-right:auto;margin-left:auto;width:1200px}
 #slides .carousel{margin-bottom:0;width:1200px}
 #slides .carousel-control{display:none}
 #slides .carousel-indicators{top:340px;right:120px;}
