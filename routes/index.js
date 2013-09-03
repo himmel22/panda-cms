@@ -4,7 +4,7 @@
 
 var Article = require('../models/article');
 var moment = require('moment');
-var S = require('string')
+var S = require('string');
 
 exports.index = function(req, res) {
 

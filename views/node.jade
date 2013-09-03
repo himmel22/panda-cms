@@ -8,7 +8,7 @@ block content
     #page-body
         .container
             .row
-                .span2
+                .span3
                     #side-nav
                         h2= article.columnName
                             span.back-to-home
@@ -16,9 +16,9 @@ block content
                         ul
                             each art in articles[article.column]
                                 if art._id.equals(article._id)
-                                    li.active: a(href="/node/#{art.nodeName}")= art.title
+                                    li.active: a(href="javascript:void(0);")= art.title
                                 else
                                     li: a(href="/node/#{art.nodeName}")= art.title
-                .span10
+                .span9
                     h2= article.title
                     .content!= article.content

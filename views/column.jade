@@ -8,7 +8,7 @@ block content
     #page-body
         .container
             .row
-                .span2
+                .span3
                     #side-nav
                         h2= columnName
                             span.back-to-home
@@ -22,5 +22,13 @@ block content
                                         else
                                             li: a(href="/article/#{art._id}")= art.title
                     include weiboshow
-                .span10
-                    h2= columnName
+                .span9
+                    if articles[column]
+                        each art, index in articles[column]
+                            .article-brief
+                                if art && index < 5
+                                    if art.nodeName
+                                        h2: a(href="/node/#{art.nodeName}")= art.title
+                                    else
+                                        h2: a(href="/article/#{art._id}")= art.title
+                                    p= S(art.content).stripTags().decodeHTMLEntities().trim().s.substring(0, 200) + '...'

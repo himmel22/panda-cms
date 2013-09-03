@@ -16,7 +16,7 @@ block content
                         ul
                             each art in articles[article.column]
                                 if art._id.equals(article._id)
-                                    li.active: a(href="/article/#{art._id}")= art.title
+                                    li.active: a(href="javascript:void(0);")= art.title
                                 else
                                     li: a(href="/article/#{art._id}")= art.title
                 .span10

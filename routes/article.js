@@ -24,7 +24,7 @@ exports.view = function(req, res) {
     function(err, results) {
 
         res.render('article', {
-            title: results.article.title,
+            title: results.article.title + '-荒野的呼唤',
             articles: results.articles,
             article: results.article
         });

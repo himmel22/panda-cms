@@ -3,6 +3,7 @@
  */
 var async = require('async');
 var Article = require('../models/article');
+var S = require('string');
 
 exports.view = function(req, res) {
     async.parallel({
@@ -19,10 +20,11 @@ exports.view = function(req, res) {
         var columnName = getColumnName(req.params.columnId)
 
         res.render('column', {
-            title: columnName,
+            title: columnName + '-荒野的呼唤',
             articles: results.articles,
             column: req.params.columnId,
-            columnName: columnName
+            columnName: columnName,
+            S:S
         });
 
     });
