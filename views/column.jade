@@ -1,5 +1,6 @@
 extends layout
 block head
+    link(rel='stylesheet', href='/css/column.css')
     script.
         $(document).ready(function(){
             $('.carousel').carousel();
@@ -25,8 +26,8 @@ block content
                 .span9
                     if articles[column]
                         each art, index in articles[column]
-                            .article-brief
-                                if art && index < 5
+                            if art && index < 5
+                                .article-brief
                                     if art.nodeName
                                         h2: a(href="/node/#{art.nodeName}")= art.title
                                     else
