@@ -52,24 +52,30 @@ app.use(function(err, req, res, next){
 	res.render('error', { error: err });
 });
 
+
+var auth = express.basicAuth('admin', 'admin');
+
+/**
+ * routes
+ */
 app.get('/', routes.index);
-app.get('/admin', admin.articles);
+app.get('/admin', auth, admin.articles);
 
 //article
-app.get('/article/add', article.addView);
-app.post('/article', article.add);
+app.get('/article/add', auth, article.addView);
+app.post('/article', auth, article.add);
 app.get('/article/:id', article.view);
-app.get('/article/:id/edit', article.editView);
-app.post('/article/:id/edit', article.edit);
-app.get('/article/:id/delete', article.delete);
+app.get('/article/:id/edit', auth, article.editView);
+app.post('/article/:id/edit', auth, article.edit);
+app.get('/article/:id/delete', auth, article.delete);
 
 app.get('/node/:nodeName', node.viewNode);
-app.get('/node/:nodeName/edit', node.editNodeView);
-app.post('/node/:nodeName/edit', node.editNode);
+app.get('/node/:nodeName/edit', auth, node.editNodeView);
+app.post('/node/:nodeName/edit', auth, node.editNode);
 
 app.get('/column/:columnId', column.view);
 //upload
-app.post('/upload/image', upload.image);
+app.post('/upload/image', auth, upload.image);
 
 //front pages
 
