@@ -5,7 +5,7 @@ var im = require('imagemagick');
 /*
  * upload
  */
-exports.image = function(req, res, next){
+exports.ckimage = function(req, res, next){
 
 	var uploadPath = __dirname + "/../public/upload/images/";
 	var hash = req.files.upload.hash;
@@ -34,4 +34,8 @@ exports.image = function(req, res, next){
 	}
     
 };
+
+exports.image = function(req, res, next) {
+	res.send(200);
+}
 

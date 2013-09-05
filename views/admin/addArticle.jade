@@ -1,11 +1,10 @@
 extends adminLayout
 block head
-	script(type="text/javascript", src="/js/lib/ckeditor/ckeditor.js")
 	script.
 		$(function() {
 			CKEDITOR.replace('articleContent', {
 				height: '500px',
-				filebrowserImageUploadUrl: '/upload/image'
+				filebrowserImageUploadUrl: '/upload/ckimage'
 				});
 			});
 block content

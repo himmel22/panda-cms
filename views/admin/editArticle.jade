@@ -1,11 +1,11 @@
 extends adminLayout
 block head
-	script(type="text/javascript", src="/js/lib/ckeditor/ckeditor.js")
+	script(type="text/javascript", src="/js/album.js")
 	script.
 		$(function() {
 			CKEDITOR.replace('articleContent', {
 				height: '500px',
-				filebrowserImageUploadUrl: '/upload/image'
+				filebrowserImageUploadUrl: '/upload/ckimage'
 				});
 			});
 block content
@@ -25,3 +25,7 @@ block content
 					button.btn.btn-primary(type="submit") 提交
 					| 
 					a.btn.btn-link(href="/article/#{article._id}/delete") 删除这篇文章
+			#edit-album
+				h2 编辑相册
+				.album-field
+				form.dropzone#editAlbumForm(action="/upload/image", method="post", enctype="multipart/form-data")

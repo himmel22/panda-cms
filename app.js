@@ -74,7 +74,9 @@ app.get('/node/:nodeName/edit', auth, node.editNodeView);
 app.post('/node/:nodeName/edit', auth, node.editNode);
 
 app.get('/column/:columnId', column.view);
+
 //upload
+app.post('/upload/ckimage', auth, upload.ckimage);
 app.post('/upload/image', auth, upload.image);
 
 //front pages

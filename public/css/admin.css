@@ -20,3 +20,6 @@ a:hover{color:#2156aa;text-decoration:none}
 .box .list > li a,.box .tree-list > li a{font-size:14px}
 .box .tree-list .branch{margin-top:10px;margin-bottom:10px;}
 .box .tree-list .branch li{border-bottom:1px dotted #ddd;padding-top:5px;padding-bottom:0}
+#edit-album .dropzone.dz-clickable{background-color:#fff;border:3px dotted #ccc;padding:20px;}
+#edit-album .dropzone.dz-clickable:hover{background-color:#f6f6f6;cursor:pointer}
+#edit-album .dz-error-mark{display:none}
