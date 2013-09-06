@@ -77,7 +77,7 @@ app.get('/column/:columnId', column.view);
 
 //upload
 app.post('/upload/ckimage', auth, upload.ckimage);
-app.post('/upload/image', auth, upload.image);
+app.post('/upload/image', upload.image);
 
 //front pages
 
