@@ -2,12 +2,12 @@ extends adminLayout
 block head
 	script(type="text/javascript", src="/js/album.js")
 	script.
-		$(function() {
-			CKEDITOR.replace('articleContent', {
-				height: '500px',
-				filebrowserImageUploadUrl: '/upload/ckimage'
-				});
-			});
+		//- $(function() {
+		//- 	CKEDITOR.replace('articleContent', {
+		//- 		height: '500px',
+		//- 		filebrowserImageUploadUrl: '/upload/ckimage'
+		//- 		});
+		//- 	});
 block content
 	.row-fluid
 		#content-header.span12
@@ -25,7 +25,6 @@ block content
 					button.btn.btn-primary(type="submit") 提交
 					| 
 					a.btn.btn-link(href="/article/#{article._id}/delete") 删除这篇文章
-			#edit-album
-				h2 编辑相册
-				.album-field
-				form.dropzone#editAlbumForm(action="/upload/image", method="post", enctype="multipart/form-data")
+	.row-fluid
+		#content-album.span12
+			include album

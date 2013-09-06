@@ -1,0 +1,21 @@
+#album-field
+	h2 编辑相册
+	.album-field
+		ul#album-list
+			li
+				img(src="/images/content01.png", alt="")
+				.delete
+					a(href="#") 删除
+			li
+				img(src="/images/content01.png", alt="")
+				.delete
+					a(href="#") 删除
+			li
+				img(src="/images/content01.png", alt="")
+				.delete
+					a(href="#") 删除	
+			li.album-upload
+				form#album-form(action="/upload/image", method="post", enctype="multipart/form-data")
+					.upload
+						| 上传图片
+					input(type="file", name="file", style="display:none;")							

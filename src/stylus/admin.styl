@@ -102,22 +102,41 @@ a
 				padding-top: 5px
 				padding-bottom: 0px
 
-#edit-album
-	.dropzone.dz-clickable
-		background-color: #FFF
-		border: 3px dotted #CCC
+#album-field
+	ul
+		margin: 0
+		padding: 0
+		background-color: #fcfcfc
 		padding: 20px
-		&:hover
-			background-color: #f6f6f6
-			cursor: pointer
-
-	.dz-error-mark
-		display: none
-
-
-
-
-
+		list-style: none
+		border-radius: 5px
+		li
+			width: 160px
+			padding: 10px
+			margin-right: 10px
+			margin-bottom: 10px
+			display: inline-block
+			border: 1px solid #eee
+			border-radius: 5px
+			vertical-align: middle
+			.delete
+				margin-top: 10px
+		li.album-upload
+			width: 100px
+			padding: 0
+			border: 4px dotted #EEE
+			margin-left: 10px
+		#album-form
+			margin: 0
+			.upload
+				width: 100px
+				height: 100px
+				text-align: center
+				line-height: 100px
+				color: #999
+				&:hover
+					background-color: #f1f1f1
+					cursor: pointer
 
 
 
