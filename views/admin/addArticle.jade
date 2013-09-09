@@ -1,24 +1,27 @@
 extends adminLayout
 block head
-	script.
-		$(function() {
-			CKEDITOR.replace('articleContent', {
-				height: '500px',
-				filebrowserImageUploadUrl: '/upload/ckimage'
-				});
-			});
+    script(type="text/javascript", src="/js/album.js")
+    script.
+        $(function() {
+            CKEDITOR.replace('articleContent', {
+                height: '500px',
+                filebrowserImageUploadUrl: '/upload/ckimage'
+                });
+            });
 block content
-	.row-fluid
-		#content-header.span12
-			h1 添加文章
-	.row-fluid
-		#content-body.span12
-			form#edit-node-form(method="POST", action="/article?column=#{column}")
-				.control-group
-					label.control-label.inline(for="articleTitle") 文章标题：
-					.controls
-						input(type="text", name="articleTitle", value=articleTitle)
-				div
-					textarea.editor(name="articleContent")= articleContent
-				.form-actions
-					button.btn.btn-primary(type="submit") 提交
+    .row-fluid
+        #content-header.span12
+            h1 添加文章
+    .row-fluid
+        #content-body.span12
+            form#edit-node-form(method="POST", action="/article?column=#{column}")
+                .control-group
+                    label.control-label.inline(for="articleTitle") 文章标题：
+                    .controls
+                        input(type="text", name="articleTitle", value=articleTitle)
+                div
+                    textarea.editor(name="articleContent")= articleContent
+                include album
+                .form-actions
+                    button.btn.btn-primary(type="submit") 提交
+            input#photo-uploader(type="file", name="file", accept="image/jpeg,image/png",style="display:none;")

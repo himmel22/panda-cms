@@ -53,16 +53,17 @@ exports.addView = function(req, res) {
  * 向指定栏目添加文章 POST
  */
 exports.add = function(req, res) {
-
     var article = new Article({
         title: req.body.articleTitle,
         content:req.body.articleContent,
-        column: req.query.column
+        column: req.query.column,
+        album: req.body.album
     });
     article.save(function (err, article) {
         if (err) {
             req.session.articleTitle = req.body.articleTitle;
             req.session.articleContent = req.body.articleContent;
+            req.session.articleAlbum = req.body.album;
             req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
             res.redirect('back');
         } else {
@@ -115,7 +116,8 @@ exports.edit = function(req, res) {
         req.params.id, 
         {
             title: req.body.articleTitle,
-            content: req.body.articleContent
+            content: req.body.articleContent,
+            album: req.body.album
         },
         function(err, article) {
 

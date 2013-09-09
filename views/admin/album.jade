@@ -1,11 +1,14 @@
 #album-field
-	h4 编辑相册
-	.album-field
-		ul#album-list
-			li
-				img(src="/images/content01.png", alt="")
-				.delete
-					a(href="#") 删除
-			li.album-upload
-				.upload
-					| 上传图片
+    h4 编辑相册
+    .album-field
+        ul#album-list
+            if article
+                each photoUrl in article.album
+                    li
+                        img(src="#{photoUrl}", alt="")
+                        input(type="hidden", name="album[]", value=photoUrl)
+                        .delete
+                            a(href="javascript:void(0);", onclick="deletePhoto(this);") 删除
+            li.album-upload
+                .upload
+                    | 上传图片

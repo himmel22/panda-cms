@@ -9,7 +9,7 @@ body{margin:0;padding:0}
 #page-top #top-tools #top-nav a{color:#666}
 #navbar{min-width:1200px;background-color:#e9e8e8;border-top:1px solid #ccc;border-bottom:1px solid #ccc}
 #navbar .container{margin-right:auto;margin-left:auto;width:1200px}
-#nav{margin:0;margin-left:130px;padding:0;list-style:none;font-weight:bold;float:left;width:100%;position:relative;z-index:5;}
+#nav{margin:0;padding:0;margin-left:130px;list-style:none;font-weight:bold;float:left;position:relative;z-index:5;}
 #nav li{float:left;margin-right:10px;position:relative}
 #nav a{display:block;padding:5px 15px;width:100px;color:#666;text-decoration:none;background:#e9e8e8 url("../images/navMenu.png") no-repeat;text-indent:-9999px;}
 #nav a.xuanze{background-position:10px 5px}
