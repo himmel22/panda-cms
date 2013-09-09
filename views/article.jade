@@ -3,7 +3,7 @@ block head
     script.
         $(document).ready(function(){
             $('.carousel').carousel();
-            });
+        });
 block content
     #page-body
         .container
@@ -20,8 +20,19 @@ block content
                                 else
                                     li: a(href="/article/#{art._id}")= art.title
                 .span10
-                    .row
-                        .span10
+                    if article.album.length > 0
+                        .row
+                            .span10
+                                #album
+                                    .carousel.slide
+                                        .carousel-inner
+                                            each photoUrl, index in article.album
+                                                if index == 0
+                                                    .item.active
+                                                        img(src=photoUrl, alt="#")
+                                                else
+                                                    .item
+                                                        img(src=photoUrl, alt="#")
                     .row
                         .span7
                             h2= article.title

@@ -19,6 +19,11 @@ block content
                     label.control-label.inline(for="articleTitle") 文章标题：
                     .controls
                         input(type="text", name="articleTitle", value=articleTitle)
+                .control-group
+                    label.control-label.inline(for="weight") 文章权重：
+                        i (数值越高的文章排列越靠前)
+                    .controls
+                        input(type="text", name="weight", value=weight)
                 div
                     textarea.editor(name="articleContent")= articleContent
                 include album

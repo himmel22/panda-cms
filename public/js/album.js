@@ -1,5 +1,4 @@
 //on dom ready
-
 $(function() {
 
     var photoUploader = $('#photo-uploader');
@@ -17,7 +16,6 @@ $(function() {
 
 
 function upload(file) {
-
     if (window.FormData) {
 
         var formData = new FormData();
@@ -33,12 +31,10 @@ function upload(file) {
                 addPhoto(res.url);
             }
         });
-
     }
 }
 
 function addPhoto(url) {
-
     clearAlert();
 
     var photoExist = $('#album-field input[name="album[]"][value="' + url + '"]').length;
@@ -59,7 +55,6 @@ function addPhoto(url) {
     }
 
 }
-
 
 function setAlert(message) {
     var alertDOM = $('#album-field .alert');

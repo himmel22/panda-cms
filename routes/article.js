@@ -41,11 +41,13 @@ exports.addView = function(req, res) {
         title: '添加文章',
         column: req.query.column,
         articleTitle: req.session.articleTitle,
-        articleContent: req.session.articleContent
+        articleContent: req.session.articleContent,
+        weight: req.session.weight
     });
 
     res.locals.articleTitle = null;
     res.locals.articleContent = null;
+    res.locals.weight = null;
 
 }
 
@@ -57,7 +59,8 @@ exports.add = function(req, res) {
         title: req.body.articleTitle,
         content:req.body.articleContent,
         column: req.query.column,
-        album: req.body.album
+        album: req.body.album,
+        weight: req.body.weight
     });
     article.save(function (err, article) {
         if (err) {
@@ -117,7 +120,8 @@ exports.edit = function(req, res) {
         {
             title: req.body.articleTitle,
             content: req.body.articleContent,
-            album: req.body.album
+            album: req.body.album,
+            weight: req.body.weight
         },
         function(err, article) {
 
@@ -163,7 +167,9 @@ function saveToHistory(article) {
         content: article.content,
         column: article.column,
         album: article.album,
-        articleId: article._id
+        articleId: article._id,
+        weight: article.weight,
+        nodeName: article.nodeName
     });
     articleHistory.save();
 }

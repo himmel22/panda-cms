@@ -42,16 +42,22 @@ html
                             li: a(href="/column/wenhuaxiangmu") 文化项目
                             li: a(href="/column/gongyixiangmu") 公益项目
                     li
-                        a.tuandui(href="/node/tuandui") 团队
+                        a.tuandui(href="/column/tuandui") 野地
                         ul
-                            li: a(href="/node/panwenshi") 潘文石
-                            li: a(href="/node/keyan")   ◇  科研  
-                            li: a(href="/node/rongyu")   ◇  荣誉  
-                            li: a(href="/node/zhuzuoyuwenzhang")   ◇  著作与文章  
-                            li: a(href="/node/yanlunyuyishi")   ◇  言论与轶事  
-                            li: a(href="/node/keyantuandui") 科研团队
-                            li: a(href="/node/zhichituandui") 支持团队
-                            li: a(href="/node/jigou") 机构
+                            if articles['tuandui']
+                                each article in articles['tuandui']
+                                    li: a(href="/article/#{article._id}")= article.title
+                    //- li
+                    //-     a.tuandui(href="/node/tuandui") 团队
+                    //-     ul
+                    //-         li: a(href="/node/panwenshi") 潘文石
+                    //-         li: a(href="/node/keyan")   ◇  科研  
+                    //-         li: a(href="/node/rongyu")   ◇  荣誉  
+                    //-         li: a(href="/node/zhuzuoyuwenzhang")   ◇  著作与文章  
+                    //-         li: a(href="/node/yanlunyuyishi")   ◇  言论与轶事  
+                    //-         li: a(href="/node/keyantuandui") 科研团队
+                    //-         li: a(href="/node/zhichituandui") 支持团队
+                    //-         li: a(href="/node/jigou") 机构
                     li
                         a.fenxiang_news(href="#") 分享
                         ul
