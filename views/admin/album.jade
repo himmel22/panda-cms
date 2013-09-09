@@ -2,14 +2,13 @@
     h4 编辑相册
     .album-field
         ul#album-list
-            if article
-                if article.album.length > 0
-                    each photoUrl in article.album
-                        li
-                            img(src="#{photoUrl}", alt="")
-                            input(type="hidden", name="album[]", value=photoUrl)
-                            .delete
-                                a(href="javascript:void(0);", onclick="deletePhoto(this);") 删除
+            if article && article.album && article.album.length > 0
+                each photoUrl in article.album
+                    li
+                        img(src="#{photoUrl}", alt="")
+                        input(type="hidden", name="album[]", value=photoUrl)
+                        .delete
+                            a(href="javascript:void(0);", onclick="deletePhoto(this);") 删除
             li.album-upload
                 .upload
                     | 上传图片

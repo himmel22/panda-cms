@@ -23,7 +23,7 @@ block content
                     label.control-label.inline(for="weight") 文章权重：
                         i (数值越高的文章排列越靠前)
                     .controls
-                        input(type="text", name="weight", value=weight, placeholder=0)
+                        input(type="text", name="weight", value=article.weight)
                 div
                     textarea.editor(name="articleContent")= article.content
                 include album

@@ -6,7 +6,7 @@ var ArticleSchema = mongoose.Schema({
     column: String,
     album: Array,
     nodeName: String,
-    weight: Number
+    weight: { type: Number, default: 0 }
 });
 
 
@@ -18,7 +18,7 @@ ArticleSchema.statics.findArticleGroupByColumn = function (callback) {
 		column: {
 			$exists: true
 		}
-	}).sort({'_id': -1});
+	}).sort({'weight': -1});
 
 	query.exec(function(err, docs) {
 

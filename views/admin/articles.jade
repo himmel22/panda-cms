@@ -17,7 +17,10 @@ block content
                                 ul.list
                                     if articles['xuanze']
                                         each article in articles['xuanze']
-                                            li: a(href="/article/#{article._id}/edit")= article.title
+                                            li
+                                                a(href="/article/#{article._id}/edit")= article.title
+                                                span.weight (#{article.weight})
+                                                    
                 .row-fluid
                     .span12
                         .box
@@ -29,7 +32,9 @@ block content
                                 ul.list
                                     if articles['yedi']
                                         each article in articles['yedi']
-                                            li: a(href="/article/#{article._id}/edit")= article.title
+                                            li
+                                                a(href="/article/#{article._id}/edit")= article.title
+                                                span.weight (#{article.weight})
             .span4
                 .box
                     .box-header
@@ -42,28 +47,36 @@ block content
                                 ul.branch
                                     if articles['keyanxiangmu']
                                         each article in articles['keyanxiangmu']
-                                            li: a(href="/article/#{article._id}/edit")= article.title
+                                            li
+                                                a(href="/article/#{article._id}/edit")= article.title
+                                                span.weight (#{article.weight})
                             li 科普项目
                                 span
                                     a(href="/article/add?column=kepuxiangmu") &nbsp;&nbsp;添加文章 +
                                 ul.branch
                                     if articles['kepuxiangmu']
                                         each article in articles['kepuxiangmu']
-                                            li: a(href="/article/#{article._id}/edit")= article.title
+                                            li
+                                                a(href="/article/#{article._id}/edit")= article.title
+                                                span.weight (#{article.weight})
                             li 文化项目
                                 span
                                     a(href="/article/add?column=wenhuaxiangmu") &nbsp;&nbsp;添加文章 +
                                 ul.branch
                                     if articles['wenhuaxiangmu']
                                         each article in articles['wenhuaxiangmu']
-                                            li: a(href="/article/#{article._id}/edit")= article.title
+                                            li
+                                                a(href="/article/#{article._id}/edit")= article.title
+                                                span.weight (#{article.weight})
                             li 公益项目
                                 span
                                     a(href="/article/add?column=gongyixiangmu") &nbsp;&nbsp;添加文章 +
                                 ul.branch
                                     if articles['gongyixiangmu']
                                         each article in articles['gongyixiangmu']
-                                            li: a(href="/article/#{article._id}/edit")= article.title
+                                            li
+                                                a(href="/article/#{article._id}/edit")= article.title
+                                                span.weight (#{article.weight})
             .span4
                 .row-fluid
                     .span12
@@ -76,7 +89,9 @@ block content
                                 ul.list
                                     if articles['tuandui']
                                         each article in articles['tuandui']
-                                            li: a(href="/article/#{article._id}/edit")= article.title
+                                            li
+                                                a(href="/article/#{article._id}/edit")= article.title
+                                                span.weight (#{article.weight})
                 .row-fluid
                     .span12
                         .box

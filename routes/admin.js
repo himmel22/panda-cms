@@ -16,34 +16,17 @@ exports.index = function(req, res) {
 /*
  * 内容管理页面
  */
-exports.articles = function(req, res) {
+exports.articles = function(req, res, next) {
 
-	var articles = {};
-
-	var query = Article.find({
-		column: {
-			$exists: true
+	Article.findArticleGroupByColumn(function(err, articles) {
+		if(err) {
+			next(err);
+		} else {
+			res.render('admin/articles', {
+				title: '内容管理',
+				articles: articles
+			});
 		}
-	});
-
-	query.exec(function(err, docs) {
-
-		//按column分类
-		docs.forEach(function(doc, index) {
-
-			if (articles[doc.column] == null) {
-				articles[doc.column] = [];
-			} 
-			
-			articles[doc.column].push(doc);
-
-		});
-
-		res.render('admin/articles', {
-			title: '内容管理',
-			articles: articles
-		});
-
 	});
 
 
