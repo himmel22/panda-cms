@@ -20,7 +20,7 @@ block content
                                 else
                                     li: a(href="/article/#{art._id}")= art.title
                 .span10
-                    if article.album.length > 0
+                    if article && article.album && article.album.length > 0
                         .row
                             .span10
                                 #album
