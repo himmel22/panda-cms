@@ -42,7 +42,7 @@ html
                             li: a(href="/column/wenhuaxiangmu") 文化项目
                             li: a(href="/column/gongyixiangmu") 公益项目
                     li
-                        a.tuandui(href="/column/tuandui") 野地
+                        a.tuandui(href="/article/#{articles['tuandui'][0]._id}") 团队
                         ul
                             if articles['tuandui']
                                 each article in articles['tuandui']
@@ -58,14 +58,14 @@ html
                     //-         li: a(href="/node/keyantuandui") 科研团队
                     //-         li: a(href="/node/zhichituandui") 支持团队
                     //-         li: a(href="/node/jigou") 机构
-                    li
-                        a.fenxiang_news(href="#") 分享
-                        ul
-                            li: a(href="#") 新闻
-                            li: a(href="#") 图片
-                            li: a(href="#") 视频
-                            li: a(href="#") 资料
-                            li: a(href="#") 专辑
+                    //- li
+                    //-     a.fenxiang_news(href="#") 分享
+                    //-     ul
+                    //-         li: a(href="#") 新闻
+                    //-         li: a(href="#") 图片
+                    //-         li: a(href="#") 视频
+                    //-         li: a(href="#") 资料
+                    //-         li: a(href="#") 专辑
                     li
                         a.yaoqing(href="/node/lianxiwomen") 邀请
                         ul

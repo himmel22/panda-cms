@@ -30,5 +30,5 @@ block content
                 .form-actions
                     button.btn.btn-primary(type="submit") 提交
                     | 
-                    a.btn.btn-link(href="/article/#{article._id}/delete") 删除这篇文章
+                    a.btn.btn-link(href="/article/#{article._id}/delete", onclick="return confirm('确定要删除这篇文章吗？');") 删除这篇文章
             input#photo-uploader(type="file", name="file", accept="image/jpeg,image/png",style="display:none;")
