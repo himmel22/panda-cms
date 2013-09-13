@@ -80,4 +80,13 @@ ArticleSchema.virtual('columnName').get(function () {
 	}
 });
 
+ArticleSchema.virtual('thumbnail').get(function () {
+    var thumbnail = [];
+    this.album.forEach(function(element, index) {
+        var dotPos = element.lastIndexOf('.');
+        thumbnail[index] = [element.slice(0, dotPos), '_thumb', element.slice(dotPos)].join('');
+    });
+    return thumbnail;
+});
+
 module.exports = mongoose.model('Article', ArticleSchema);

@@ -16,13 +16,13 @@ block content
                     li(data-target="#carousel", data-slide-to="2")
                 .carousel-inner
                     .item.active
-                        a(href="#")
+                        a(href="/article/520daa48ff52823dc7000002")
                             img(src="images/slide01.jpg", alt="#")
                     .item
-                        a(href="#")
+                        a(href="/article/520daa55ff52823dc7000003")
                             img(src="images/slide02.jpg", alt="#")
                     .item
-                        a(href="#")
+                        a(href="/article/520daa3fff52823dc7000001")
                             img(src="images/slide03.jpg", alt="#")
                 a.left.carousel-control(href="#myCarousel", data-slide="prev") ‹
                 a.right.carousel-control(href="#myCarousel", data-slide="next") ›
@@ -33,7 +33,7 @@ block content
                     h3 野地
                     if articles['yedi']
                         a.image(href="/article/#{articles['yedi'][0]._id}")
-                            img(src="images/content01.png", alt="#")
+                            img(src="#{articles['yedi'][0].thumbnail[0]}", alt="#")
                         .content
                             h4 
                                 a(href="/article/#{articles['yedi'][0]._id}")= articles['yedi'][0].title
@@ -44,7 +44,7 @@ block content
                     h3 行动
                     if articles['xingdong'][0]
                         a.image(href="/article/#{articles['xingdong'][0]._id}")
-                            img(src="images/content02.png", alt="#")
+                            img(src="#{articles['xingdong'][0].thumbnail[0]}", alt="#")
                         .content
                             h4 
                                 a(href="/article/#{articles['xingdong'][0]._id}")= articles['xingdong'][0].title
