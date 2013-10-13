@@ -24,6 +24,10 @@ block content
                         i (数值越高的文章排列越靠前)
                     .controls
                         input(type="text", name="weight", value=article.weight)
+                .control-group
+                    label.control-label.inline(for="abstract") 摘要：
+                    .controls
+                        textarea.abstract-editor(name="abstract")= article.abstract
                 div
                     textarea.editor(name="articleContent")= article.content
                 include album

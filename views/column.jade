@@ -34,4 +34,7 @@ block content
                                         h2: a(href="/article/#{art._id}")= art.title
                                     if art.album && art.album.length > 0
                                         img(src="#{art.album[0]}")
-                                    p= S(art.content).stripTags().decodeHTMLEntities().trim().s.substring(0, 200) + '...'
+                                    if art.abstract
+                                        p= art.abstract
+                                    else
+                                        p= S(art.content).stripTags().decodeHTMLEntities().trim().s.substring(0, 200) + '...'

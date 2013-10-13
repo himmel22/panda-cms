@@ -42,12 +42,14 @@ exports.addView = function(req, res) {
         column: req.query.column,
         articleTitle: req.session.articleTitle,
         articleContent: req.session.articleContent,
-        weight: req.session.weight
+        weight: req.session.weight,
+        abstract: req.session.abstract
     });
 
     res.locals.articleTitle = null;
     res.locals.articleContent = null;
     res.locals.weight = null;
+    res.locals.abstract = null;
 
 }
 
@@ -60,13 +62,15 @@ exports.add = function(req, res) {
         content:req.body.articleContent,
         column: req.query.column,
         album: req.body.album,
-        weight: req.body.weight
+        weight: req.body.weight,
+        abstract: req.body.abstract
     });
     article.save(function (err, article) {
         if (err) {
             req.session.articleTitle = req.body.articleTitle;
             req.session.articleContent = req.body.articleContent;
             req.session.articleAlbum = req.body.album;
+            req.session.abstract = req.abstract.album;
             req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
             res.redirect('back');
         } else {
@@ -121,7 +125,8 @@ exports.edit = function(req, res) {
             title: req.body.articleTitle,
             content: req.body.articleContent,
             album: req.body.album,
-            weight: req.body.weight
+            weight: req.body.weight,
+            abstract: req.body.abstract
         },
         function(err, article) {
 
@@ -169,7 +174,8 @@ function saveToHistory(article) {
         album: article.album,
         articleId: article._id,
         weight: article.weight,
-        nodeName: article.nodeName
+        nodeName: article.nodeName,
+        abstract: article.abstract
     });
     articleHistory.save();
 }

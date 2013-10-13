@@ -96,14 +96,3 @@ exports.editNode = function(req, res, next) {
         }
     );
 }
-
-function saveToHistory(article) {
-    var articleHistory = new ArticleHistory({
-        title: article.title,
-        content: article.content,
-        column: article.column,
-        album: article.album,
-        articleId: article._id
-    });
-    articleHistory.save();
-}

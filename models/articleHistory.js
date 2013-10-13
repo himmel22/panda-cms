@@ -6,6 +6,7 @@ var ArticleHistorySchema = mongoose.Schema({
     column: String,
     album: Array,
     articleId: String,
+    abstract: String,
     nodeName: String
 });
 

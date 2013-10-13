@@ -6,6 +6,7 @@ var ArticleSchema = mongoose.Schema({
     column: String,
     album: Array,
     nodeName: String,
+    abstract: String,
     weight: { type: Number, default: 0 }
 });
 
