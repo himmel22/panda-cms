@@ -1,0 +1,33 @@
+extends layout
+block head
+    script.
+        $(document).ready(function(){
+            $('.carousel').carousel();
+            });
+
+block content
+    #page-body
+        .container
+            .row
+                .span3
+                    #side-nav
+                        h2 分享
+                            span.back-to-home
+                                a(href="/") 返回首页&lt;
+                        ul
+                            li: a(href="/share/news") 新闻
+                            li: a(href="/share/photos") 图片
+                            li: a(href="/share/videos") 视频
+                            li: a(href="/share/data") 资料
+
+                .span9
+                    ul
+                        case shareType
+                            when 'videos'
+                                li videos
+                            when 'photos'
+                                li photos
+                            when 'data'
+                                li data
+                            when 'news'
+                                li news

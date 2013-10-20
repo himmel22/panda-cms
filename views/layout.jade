@@ -47,25 +47,13 @@ html
                             if articles['tuandui']
                                 each article in articles['tuandui']
                                     li: a(href="/article/#{article._id}")= article.title
-                    //- li
-                    //-     a.tuandui(href="/node/tuandui") 团队
-                    //-     ul
-                    //-         li: a(href="/node/panwenshi") 潘文石
-                    //-         li: a(href="/node/keyan")   ◇  科研  
-                    //-         li: a(href="/node/rongyu")   ◇  荣誉  
-                    //-         li: a(href="/node/zhuzuoyuwenzhang")   ◇  著作与文章  
-                    //-         li: a(href="/node/yanlunyuyishi")   ◇  言论与轶事  
-                    //-         li: a(href="/node/keyantuandui") 科研团队
-                    //-         li: a(href="/node/zhichituandui") 支持团队
-                    //-         li: a(href="/node/jigou") 机构
-                    //- li
-                    //-     a.fenxiang_news(href="#") 分享
-                    //-     ul
-                    //-         li: a(href="#") 新闻
-                    //-         li: a(href="#") 图片
-                    //-         li: a(href="#") 视频
-                    //-         li: a(href="#") 资料
-                    //-         li: a(href="#") 专辑
+                    li
+                        a.fenxiang_news(href="/share/photos") 分享
+                        ul
+                            li: a(href="/share/news") 新闻
+                            li: a(href="/share/photos") 图片
+                            li: a(href="/share/videos") 视频
+                            li: a(href="/share/data") 资料
                     li
                         a.yaoqing(href="/node/lianxiwomen") 邀请
                         ul

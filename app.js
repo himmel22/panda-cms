@@ -9,6 +9,7 @@ var express = require('express')
   , article = require('./routes/article')
   , node = require('./routes/node')
   , column = require('./routes/column')
+  , share = require('./routes/share')
   , upload = require('./routes/upload')
   , http = require('http')
   , path = require('path')
@@ -80,6 +81,12 @@ app.post('/upload/ckimage', auth, upload.ckimage);
 app.post('/upload/image', upload.image);
 
 //front pages
+
+//share pages
+app.get('/share/news', share.news);
+app.get('/share/photos', share.photos);
+app.get('/share/videos', share.videos);
+app.get('/share/data', share.data);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

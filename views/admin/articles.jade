@@ -105,6 +105,23 @@ block content
                                             li: a(href="/node/lianxiwomen/edit?column=yaoqing") 联系我们
                                             li: a(href="/node/zhiyuanzhe/edit?column=yaoqing") 志愿者
                                             li: a(href="/node/juanzhuyuganxie/edit?column=yaoqing") 捐助与感谢
+        .row-fluid
+            .span4
+                .row-fluid
+                    .span12
+                        .box
+                            .box-header
+                                h2 其它文章
+                                .ops
+                                    a(href="/article/add?column=other") 添加文章 +
+                            .box-body
+                                ul.list
+                                    if articles['other']
+                                        each article in articles['other']
+                                            li
+                                                a(href="/article/#{article._id}/edit")= article.title
+                                                span.weight (#{article.weight})
+
 
 
 
