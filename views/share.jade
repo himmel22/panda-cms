@@ -15,19 +15,40 @@ block content
                             span.back-to-home
                                 a(href="/") 返回首页&lt;
                         ul
-                            li: a(href="/share/news") 新闻
-                            li: a(href="/share/photos") 图片
+                            //- li: a(href="/share/news") 新闻
+                            li: a(href="/share/photos?type=panda") 图片
                             li: a(href="/share/videos") 视频
                             li: a(href="/share/data") 资料
 
                 .span9
-                    ul
+                    #share-center
                         case shareType
                             when 'videos'
-                                li videos
+                                ul.videos
+                                    each video in videos
+                                        li
+                                            a(href=video.link, target="_blank")
+                                                img(src=video.img, alt="")
+                                                p= video.title
                             when 'photos'
-                                li photos
+                                ul.sub-nav
+                                    li: a(href="/share/photos/?type=panda") 大熊猫
+                                    li: a(href="/share/photos/?type=monkey") 白头叶猴
+                                    li: a(href="/share/photos/?type=dolphin") 白海豚
+                                    li: a(href="/share/photos/?type=other") 其他
+                                ul.photos
+                                    each photo in photos
+                                        li
+                                            a(href=photo.link, target="_blank")
+                                                img(src=photo.img, alt="")
+                                                p 2010年10月
                             when 'data'
-                                li data
+                                ul.data
+                                    each file in files
+                                        li
+                                            a(href=file.link, target="_blank")
+                                                img(src=file.img, alt="")
+                                                p= file.title
                             when 'news'
-                                li news
+                                ul
+                                    li news
