@@ -32,7 +32,13 @@ exports.photos = function(req, res) {
     }, 
     function(err, results) {
         var photos = [];
-        var type = req.query.type;
+        var type = null;
+        if (req.query.type) {
+            type = req.query.type;
+        } else {
+            type = 'panda';
+        }
+        
         for (var i = 12; i >= 1; i--) {
             photos.push({
                 img: '/upload/files/photo/' + type + '/' + i + 'w.jpg',
