@@ -161,7 +161,15 @@ exports.data = function(req, res) {
             title: '野生白头叶猴的保护生物学和社会生物学研究',
             link: '/upload/files/9.pdf',
             img: '/images/pdf.png'
-        }, ];
+        }, {
+            title: '钦州的白海豚',
+            link: '/upload/files/10.pdf',
+            img: '/images/pdf.png'
+        }, {
+            title: '北京论坛',
+            link: '/upload/files/11.pdf',
+            img: '/images/pdf.png'
+        }];
         res.render('share', {
             title: '资料-荒野的呼唤',
             articles: results.articles,

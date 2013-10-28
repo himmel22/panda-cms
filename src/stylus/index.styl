@@ -6,7 +6,7 @@
         margin-left: auto
         width: 1200px
     min-width: 1200px
-    background-color: #111
+    background: url("../images/slidesbg.jpg") repeat-x
     height: 366px
     overflow: hidden
     .carousel
@@ -34,8 +34,15 @@
     h3
         color: #79584D
         font-weight: normal
+        font-size: 20px
+        font-family: "Microsoft YaHei"
     .content
         position: relative
+        padding-top: 10px
+        ul 
+            margin: 0
+            margin-bottom: 10px
+            list-style: none
         h4
             line-height: 18px
             color: #8C523F
@@ -55,14 +62,11 @@
             color: #FFF
             border-radius: 5px
             padding: 2px 5px
-    #contact
-        h2
-            font-size: 14px
-        ul
-            padding: 0
-            margin: 0
-        li
-            list-style-type: none
+        &.data
+            ul
+                li
+                    display: inline-block
+                    width: 50%
 
 
 

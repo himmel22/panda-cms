@@ -23,71 +23,61 @@ block content
                     li(data-target="#carousel", data-slide-to="9")
                 .carousel-inner
                     .item.active
-                        a(href="/article/520daa48ff52823dc7000002")
+                        a(href="/article/5224d3e8a267ead773a6cf3e")
                             img(src="images/slide/001.jpg", alt="#")
                     .item
                         a(href="/article/520daa55ff52823dc7000003")
-                            img(src="images/slide/002.jpg", alt="#")
-                    .item
-                        a(href="/article/520daa3fff52823dc7000001")
-                            img(src="images/slide/003.jpg", alt="#")
-                    .item
-                        a(href="/article/520daa48ff52823dc7000002")
                             img(src="images/slide/004.jpg", alt="#")
-                    .item
-                        a(href="/article/520daa55ff52823dc7000003")
-                            img(src="images/slide/005.jpg", alt="#")
-                    .item
-                        a(href="/article/520daa3fff52823dc7000001")
-                            img(src="images/slide/006.jpg", alt="#")
-                    .item
-                        a(href="/article/520daa48ff52823dc7000002")
-                            img(src="images/slide/007.jpg", alt="#")
-                    .item
-                        a(href="/article/520daa55ff52823dc7000003")
-                            img(src="images/slide/008.jpg", alt="#")
                     .item
                         a(href="/article/520daa3fff52823dc7000001")
                             img(src="images/slide/009.jpg", alt="#")
                     .item
-                        a(href="/article/520daa3fff52823dc7000001")
+                        a(href="/article/520daa48ff52823dc7000002")
                             img(src="images/slide/010.jpg", alt="#")
+                    .item
+                        a(href="/article/520daa81ff52823dc7000007")
+                            img(src="images/slide/011.jpg", alt="#")
+                    .item
+                        a(href="/article/520daa3fff52823dc7000001")
+                            img(src="images/slide/003.jpg", alt="#")
+                    .item
+                        a(href="/article/520daa3fff52823dc7000001")
+                            img(src="images/slide/007.jpg", alt="#")
                 a.left.carousel-control(href="#myCarousel", data-slide="prev") ‹
                 a.right.carousel-control(href="#myCarousel", data-slide="next") ›
     #highlights
         .container
             .row
                 .content-block.span4
-                    h3 野地
-                    if articles['yedi']
-                        a.image(href="/article/#{articles['yedi'][0]._id}")
-                            img(src="#{articles['yedi'][0].thumbnail[0]}", alt="#")
-                        .content
-                            h4 
-                                a(href="/article/#{articles['yedi'][0]._id}")= articles['yedi'][0].title
-                            .time= moment(articles['yedi'][0]._id.getTimestamp()).format('YYYY-MM-DD')
-                            p= S(articles['yedi'][0].content).stripTags().decodeHTMLEntities().trim().s.substring(0, 45) + '...'
-                            a.more(href="/column/yedi") more
-                .content-block.span4
-                    h3 行动
-                    if articles['xingdong'][0]
-                        a.image(href="/article/#{articles['xingdong'][0]._id}")
-                            img(src="#{articles['xingdong'][0].thumbnail[0]}", alt="#")
-                        .content
-                            h4 
-                                a(href="/article/#{articles['xingdong'][0]._id}")= articles['xingdong'][0].title
-                            .time= moment(articles['xingdong'][0]._id.getTimestamp()).format('YYYY-MM-DD')
-                            p= S(articles['xingdong'][0].content).stripTags().decodeHTMLEntities().trim().s.substring(0, 45) + '...'
-                            a.more(href="/column/xingdong") more
-                .content-block.span4#contact
-                    h3 团队
-                    a.image(href="/node/tuandui")
-                        img(src="images/content03.png", alt="#")
+                    h3 视频
+                    a.image(href="http://you.video.sina.com.cn/b/117066116-1632781911.html")
+                        img(src="/images/video01.png", alt="#")
                     .content
-                        h2
-                            img(src='images/contactIcon.png', alt='')
-                            span   联系我们
+                        p 
+                            | 这里是我所深爱的科学故乡，共有十三个未曾虚度的寒暑。
+                            | 是故乡的启蒙和指引，我走上了今生的科学道路……
+                        a.more(href="/share/videos") more
+                .content-block.span4
+                    h3 图片
+                    a.image(href="/share/photos/?type=monkey")
+                        img(src="/images/pic01.png", alt="#")
+                    .content
                         ul
-                            li 地址：北京大学保护生物学中心
-                            li 邮编：1000871
-                            li 电话：+86-10-62752721
+                            li: a(href="/share/photos/?type=monkey") 独产于北热带喀斯特丛林中的白头叶猴
+                            li: a(href="/share/photos/?type=dolphin") 钦州的白海豚是健康的、有希望的种群
+                        a.more(href="/share/photos?type=panda") more
+                .content-block.span4
+                    h3 资料
+                    a.image(href="/node/tuandui")
+                        img(src="/images/data01.png", alt="#")
+                    .content.data
+                        ul
+                            li: a(href="/upload/files/6.pdf") 生命教育是不朽的投资
+                            li: a(href="/upload/files/4.pdf") 我的保护观
+                            li: a(href="/upload/files/4.pdf") 明智的伦理抉择
+                            li: a(href="/upload/files/5.pdf") 为了美丽富饶的钦州
+                        a.more(href="/share/data") more
+
+
+
+

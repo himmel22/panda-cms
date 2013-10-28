@@ -1,4 +1,4 @@
-#slides{min-width:1200px;background-color:#111;height:366px;overflow:hidden;}
+#slides{min-width:1200px;background:url("../images/slidesbg.jpg") repeat-x;height:366px;overflow:hidden;}
 #slides .container{margin-right:auto;margin-left:auto;width:1200px}
 #slides .carousel{margin-bottom:0;width:1200px}
 #slides .carousel-control{display:none}
@@ -7,12 +7,11 @@
 #slides .item img{margin:auto}
 #highlights{min-width:1200px;padding-top:10px;padding-bottom:20px;background-color:#f6f5f3;}
 #highlights .container{width:940px}
-#highlights h3{color:#79584d;font-weight:normal}
-#highlights .content{position:relative;}
+#highlights h3{color:#79584d;font-weight:normal;font-size:20px;font-family:"Microsoft YaHei"}
+#highlights .content{position:relative;padding-top:10px;}
+#highlights .content ul{margin:0;margin-bottom:10px;list-style:none}
 #highlights .content h4{line-height:18px;color:#8c523f;font-size:14px;font-weight:bold;}
 #highlights .content h4 a{color:#8c523f;font-size:14px;font-weight:bold}
 #highlights .content .time{position:absolute;right:0;top:0;color:#666}
 #highlights .content .more{background-color:#856d54;color:#fff;border-radius:5px;padding:2px 5px}
-#highlights #contact h2{font-size:14px}
-#highlights #contact ul{padding:0;margin:0}
-#highlights #contact li{list-style-type:none}
+#highlights .content.data ul li{display:inline-block;width:50%}
