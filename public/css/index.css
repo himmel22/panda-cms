@@ -14,4 +14,5 @@
 #highlights .content h4 a{color:#8c523f;font-size:14px;font-weight:bold}
 #highlights .content .time{position:absolute;right:0;top:0;color:#666}
 #highlights .content .more{background-color:#856d54;color:#fff;border-radius:5px;padding:2px 5px}
+#highlights .content.data ul{list-style:none;margin-bottom:10px;margin-left:0;clear:both;}
 #highlights .content.data ul li{display:inline-block;width:50%}
