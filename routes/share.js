@@ -126,15 +126,15 @@ exports.data = function(req, res) {
     function(err, results) {
         var files = [
         {
-            title: '继续生存的机会-序言',
+            title: '《继续生存的机会》序言',
             link: '/upload/files/1.pdf',
             img: '/images/pdf.png'
         }, {
-            title: '继续生存的机会-第一章',
+            title: '《继续生存的机会》第一章',
             link: '/upload/files/2.pdf',
             img: '/images/pdf.png'
         }, {
-            title: '虎子节选 (恢复)',
+            title: '《熊猫虎子》节选',
             link: '/upload/files/3.pdf',
             img: '/images/pdf.png'
         }, {
@@ -146,7 +146,7 @@ exports.data = function(req, res) {
             link: '/upload/files/5.pdf',
             img: '/images/pdf.png'
         }, {
-            title: '生命教育是不朽的投资（彩色版）',
+            title: '生命教育是不朽的投资',
             link: '/upload/files/6.pdf',
             img: '/images/pdf.png'
         }, {
@@ -162,11 +162,11 @@ exports.data = function(req, res) {
             link: '/upload/files/9.pdf',
             img: '/images/pdf.png'
         }, {
-            title: '钦州的白海豚',
+            title: '《钦州的白海豚》指南',
             link: '/upload/files/10.pdf',
             img: '/images/pdf.png'
         }, {
-            title: '北京论坛',
+            title: '《明智的伦理抉择是穿越生存瓶颈的唯一指南》——2010北京论坛主旨发言报告',
             link: '/upload/files/11.pdf',
             img: '/images/pdf.png'
         }];
