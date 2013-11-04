@@ -9,7 +9,7 @@
 #highlights .container{width:940px}
 #highlights h3{color:#79584d;font-weight:normal;font-size:20px;font-family:"Microsoft YaHei"}
 #highlights .content{position:relative;padding-top:10px;}
-#highlights .content ul{margin:0;margin-bottom:10px;list-style:none}
+#highlights .content ul{margin-bottom:10px}
 #highlights .content h4{line-height:18px;color:#8c523f;font-size:14px;font-weight:bold;}
 #highlights .content h4 a{color:#8c523f;font-size:14px;font-weight:bold}
 #highlights .content .time{position:absolute;right:0;top:0;color:#666}
