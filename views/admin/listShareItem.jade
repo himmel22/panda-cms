@@ -1,0 +1,17 @@
+extends adminLayout
+block head
+block content
+    .row-fluid
+        #content-header.span12
+            case itemType
+                when 'photo'
+                    h1 所有照片
+                    a(href="/share/item/add/#{itemType}") +添加照片
+                when 'video'
+                    h1 所有视频
+                    a(href="/share/item/add/#{itemType}") +添加视频
+                when 'data'
+                    h1 所有资料
+                    a(href="/share/item/add/#{itemType}") +添加资料
+    .row-fluid
+        #content-body.span12

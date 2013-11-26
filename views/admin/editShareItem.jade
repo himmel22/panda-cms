@@ -1,0 +1,53 @@
+extends adminLayout
+block head
+block content
+    .row-fluid
+        #content-header.span12
+            case itemType
+                when 'photo'
+                    h1 添加照片
+                when 'video'
+                    h1 添加视频
+                when 'data'
+                    h1 添加资料
+    .row-fluid
+        #content-body.span12
+            form#edit-node-form(
+                method="POST", 
+                action=item?"/share/item/#{item._id}/edit":"/share/item/add/#{itemType}"
+                )
+                .control-group
+                    label.control-label.inline(for="itemTitle") 标题：
+                    .controls
+                        input(type="text", name="itemTitle", value=item?item.title:null)
+                case itemType
+                    when 'photo'
+                        .control-group
+                            label.control-label.inline(for="photo") 照片：
+                            .controls
+                                input(type="file", name="photo", accept="image/jpeg,image/png")
+                        .control-group
+                            label.control-label.inline(for="date") 日期：
+                            .controls
+                                input(type="text", name="date", value=item?item.date:null)
+                    when 'video'
+                        .control-group
+                            label.control-label.inline(for="link") 视频地址：
+                            .controls
+                                input(type="text", name="link", value=item?item.link:null)
+                        .control-group
+                            label.control-label.inline(for="date") 缩略图：
+                            .controls
+                                input(type="file", name="date", accept="image/jpeg,image/png")
+                    when 'data'
+                        .control-group
+                            label.control-label.inline(for="date") 缩略图：
+                            .controls
+                                input(type="file", name="date", accept="image/jpeg,image/png")
+                .control-group
+                    label.control-label.inline(for="weight") 权重：
+                        i (数值越高排列越靠前)
+                    .controls
+                        input(type="text", name="weight", value=item?item.weight:null)
+                .form-actions
+                    button.btn.btn-primary(type="submit") 提交

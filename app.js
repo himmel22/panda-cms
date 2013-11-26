@@ -88,6 +88,12 @@ app.get('/share/photos', share.photos);
 app.get('/share/videos', share.videos);
 app.get('/share/data', share.data);
 
+app.all('/share/item/add/:itemType', auth, share.addItem);
+app.all('/share/item/:id/edit', auth, share.editItem);
+app.get('/share/item/:id/delete', auth, share.deleteItem);
+
+app.get('/admin/share/:itemType', auth, share.list);
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

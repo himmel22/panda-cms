@@ -25,17 +25,21 @@ html
         #sidemenu
             ul
                 li
-                    a.active(href="/admin") 
+                    a(href="/admin") 
                         i.icon-list.icon-white
                         | 内容管理
                 li
-                    a(href="/admin")
+                    a(href="/admin/share/photo")
                         i.icon-share.icon-white
-                        | 分享中心
+                        | 照片
                 li
-                    a(href="/admin")
-                        i.icon-question-sign.icon-white
-                        | 帮助
+                    a(href="/admin/share/video")
+                        i.icon-share.icon-white
+                        | 视频
+                li
+                    a(href="/admin/share/data")
+                        i.icon-share.icon-white
+                        | 资料
         #content
             .container-fluid
                 if alert

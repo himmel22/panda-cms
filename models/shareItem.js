@@ -1,0 +1,15 @@
+var mongoose = require('mongoose');
+
+var ShareItemSchema = mongoose.Schema({
+    title: String,
+    link: String,
+    thumbnail: String,
+    date: String,
+    tag: String,
+    type: String,
+    catalog: String,
+    weight: { type: Number, default: 0 }
+});
+
+
+module.exports = mongoose.model('ShareItem', ShareItemSchema);

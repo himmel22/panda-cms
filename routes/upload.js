@@ -41,7 +41,7 @@ function handleImage(image, callback) {
 		var thumbName = hash + '_thumb' + extname;
 		var srcPath = uploadPath + newFileName;
 		var dstPath = uploadPath + thumbName
-		im.convert([srcPath, '-resize', '300x150^', '-gravity', 'center', '-extent', '300x150', dstPath],
+		im.convert([srcPath, '-resize', '300x200^', '-gravity', 'center', '-extent', '300x200', dstPath],
 			function(err, stdout, stderr) {
 				if (err) next(err);
 			});

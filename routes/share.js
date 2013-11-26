@@ -3,6 +3,7 @@
  */
 var async = require('async');
 var Article = require('../models/article');
+var ShareItem = require('../models/shareItem');
 var S = require('string');
 
 exports.news = function(req, res) {
@@ -178,3 +179,93 @@ exports.data = function(req, res) {
         });
     });
 }
+
+exports.addItem = function(req, res) {
+    if (req.method === 'POST') {
+        addItemPost(req, res);
+        return;
+    }
+    res.render('admin/editShareItem', {
+        title: '添加news',
+        itemType: req.params.itemType
+    });
+}
+
+function addItemPost(req, res) {
+    var shareItem = new ShareItem({
+        title: req.body.itemTitle,
+        link: req.body.link,
+        thumbnail: req.body.thumbnail,
+        date: req.body.date,
+        tag: req.body.tag,
+        type: req.params.itemType,
+        catalog: req.body.catalog,
+        weight: req.body.weight
+    });
+    shareItem.save(function (err, shareItem) {
+        if (err) {
+            req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
+            res.redirect('back');
+        } else {
+            req.session.alert = { message: '成功添加分享！', type: 'alert-success' };
+            res.redirect('/admin/share/' + req.params.itemType);
+        }
+    });
+}
+
+exports.editItem = function(req, res) {
+    if (req.method === 'POST') {
+        editItemPost(req, res);
+        return;
+    }
+    ShareItem.findById(req.params.id, function(err, shareItem) {
+
+        if(err) {
+            next(err);
+        }
+        if(shareItem) {
+            res.render('admin/editShareItem', {
+                title: '编辑',
+                shareItem: shareItem
+            });
+        } else {
+            res.send(404);
+        }
+
+    });
+}
+
+function editItemPost(req, res) {
+    return;
+}
+
+exports.deleteItem = function(req, res) {
+    return;
+}
+
+exports.list = function(req, res) {
+    res.render('admin/listShareItem', {
+        title: '添加news',
+        itemType: req.params.itemType
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
