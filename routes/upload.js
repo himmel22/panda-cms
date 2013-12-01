@@ -38,7 +38,7 @@ function handleImage(image, callback) {
 
 	fs.rename(image.path, uploadPath + newFileName, function() {
 		//生成缩略图
-		var thumbName = hash + '_thumb' + extname;
+		var thumbName = 'thumb_' + hash + extname;
 		var srcPath = uploadPath + newFileName;
 		var dstPath = uploadPath + thumbName
 		im.convert([srcPath, '-resize', '300x200^', '-gravity', 'center', '-extent', '300x200', dstPath],

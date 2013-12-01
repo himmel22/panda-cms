@@ -5,6 +5,9 @@ var async = require('async');
 var Article = require('../models/article');
 var ShareItem = require('../models/shareItem');
 var S = require('string');
+var fs = require('fs');
+var path = require('path');
+var im = require('imagemagick');
 
 exports.news = function(req, res) {
     async.parallel({
@@ -182,42 +185,33 @@ exports.data = function(req, res) {
 
 exports.addItem = function(req, res) {
     if (req.method === 'POST') {
-        addItemPost(req, res);
+        var shareItem = new ShareItem();
+        editItem(req, res, shareItem);
         return;
     }
     res.render('admin/editShareItem', {
-        title: '添加news',
+        title: '添加分享',
         itemType: req.params.itemType
     });
 }
 
-function addItemPost(req, res) {
-    var shareItem = new ShareItem({
-        title: req.body.itemTitle,
-        link: req.body.link,
-        thumbnail: req.body.thumbnail,
-        date: req.body.date,
-        tag: req.body.tag,
-        type: req.params.itemType,
-        catalog: req.body.catalog,
-        weight: req.body.weight
-    });
-    shareItem.save(function (err, shareItem) {
-        if (err) {
-            req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
-            res.redirect('back');
-        } else {
-            req.session.alert = { message: '成功添加分享！', type: 'alert-success' };
-            res.redirect('/admin/share/' + req.params.itemType);
-        }
-    });
-}
 
 exports.editItem = function(req, res) {
+
     if (req.method === 'POST') {
-        editItemPost(req, res);
+        ShareItem.findById(req.params.id, function(err, shareItem) {
+            if(err) {
+                next(err);
+            }
+            if(shareItem) {
+                editItem(req, res, shareItem);
+            } else {
+                res.send(404);
+            }
+        });
         return;
     }
+
     ShareItem.findById(req.params.id, function(err, shareItem) {
 
         if(err) {
@@ -235,23 +229,100 @@ exports.editItem = function(req, res) {
     });
 }
 
-function editItemPost(req, res) {
-    return;
-}
-
 exports.deleteItem = function(req, res) {
     return;
 }
 
 exports.list = function(req, res) {
-    res.render('admin/listShareItem', {
-        title: '添加news',
-        itemType: req.params.itemType
+    ShareItem.find(
+        { type: req.params.itemType }, 
+        function(err, items) {
+            res.render('admin/listShareItem', {
+                title: '添加分享',
+                itemType: req.params.itemType,
+                items: items
+            });
+        });
+}
+
+function editItem(req, res, shareItem) {
+    if (req.body.itemTitle.length > 0) {
+        shareItem.title = req.body.itemTitle;
+    }
+    shareItem.datalink = req.body.datalink;
+    shareItem.videolink = req.body.videolink;
+    shareItem.photolink = req.body.photolink;
+    shareItem.thumbnail = req.body.thumbnail;
+    shareItem.date = req.body.date;
+    shareItem.tag = req.body.tag;
+    shareItem.type = req.params.itemType;
+    shareItem.catalog = req.body.catalog;
+    shareItem.weight = (req.body.weight==='' ? 0:req.body.weight);
+
+    if (req.files.photo && req.files.photo.size > 0) {
+        //photo
+        var hash = req.files.photo.hash;
+        var extname = path.extname(req.files.photo.name);
+        var newFileName = hash + extname;
+
+        shareItem.photolink = '/upload/images/' + newFileName;
+        shareItem.thumbnail = '/upload/images/thumb_' + newFileName;
+        handleImage(req.files.photo, newFileName);
+
+    } else if (req.files.thumb && req.files.thumb.size > 0) {
+        //thumb
+        var hash = req.files.thumb.hash;
+        var extname = path.extname(req.files.thumb.name);
+        var newFileName = hash + extname;
+
+        shareItem.thumbnail = '/upload/images/thumb_' + newFileName;
+        handleImage(req.files.thumb, newFileName);
+        
+    }
+
+    //data file upload
+    if (req.files.datafile && req.files.datafile.size > 0) {
+        var hash = req.files.thumb.hash;
+        var extname = path.extname(req.files.thumb.name);
+        var newFileName = hash + extname;
+
+        shareItem.datalink= '/upload/files/' + newFileName;
+        handleFile(req.files.datafile, newFileName);
+    }
+
+    shareItem.save(function (err, shareItem) {
+        if (err) {
+            req.session.alert = { message: '发生异常，请重新提交。', type: 'alert-error' };
+            res.redirect('back');
+        } else {
+            req.session.alert = { message: '成功添加分享！', type: 'alert-success' };
+            res.redirect('/admin/share/' + req.params.itemType);
+        }
     });
+
 }
 
 
+function handleImage(image, newFileName) {
+    var uploadPath = __dirname + "/../public/upload/images/";
+    fs.rename(image.path, uploadPath + newFileName, function() {
+        //生成缩略图
+        var thumbName = 'thumb_' + image.hash + extname;
+        var srcPath = uploadPath + newFileName;
+        var dstPath = uploadPath + thumbName
+        im.convert([srcPath, '-resize', '300x200^', '-gravity', 'center', '-extent', '300x200', dstPath],
+            function(err, stdout, stderr) {
+                console.log(err);
+            });
+    });
+}
 
+function handleFile(file, newFileName) {
+    var uploadPath = __dirname + "/../public/upload/files/";
+    fs.rename(file.path, uploadPath + newFileName, function(err) {
+        if (err) { console.log(err); }
+    });
+}
 
 
 

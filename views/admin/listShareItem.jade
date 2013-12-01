@@ -15,3 +15,6 @@ block content
                     a(href="/share/item/add/#{itemType}") +添加资料
     .row-fluid
         #content-body.span12
+            if items !== null
+                each item in items
+                    div= item.title

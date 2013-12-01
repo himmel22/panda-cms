@@ -14,7 +14,8 @@ block content
         #content-body.span12
             form#edit-node-form(
                 method="POST", 
-                action=item?"/share/item/#{item._id}/edit":"/share/item/add/#{itemType}"
+                action=item?"/share/item/#{item._id}/edit":"/share/item/add/#{itemType}",
+                enctype="multipart/form-data"
                 )
                 .control-group
                     label.control-label.inline(for="itemTitle") 标题：
@@ -23,27 +24,48 @@ block content
                 case itemType
                     when 'photo'
                         .control-group
-                            label.control-label.inline(for="photo") 照片：
+                            label.control-label.inline(for="catalog") 分类：
+                            .controls
+                                select(name="catalog")
+                                    option(value="大熊猫") 大熊猫
+                                    option(value="白头叶猴") 白头叶猴
+                                    option(value="白海豚") 白海豚
+                                    option(value="其他") 其他
+                        .control-group
+                            label.control-label.inline(for="photo") 上传照片：
                             .controls
                                 input(type="file", name="photo", accept="image/jpeg,image/png")
+                        .control-group
+                            label.control-label.inline(for="author") 作者：
+                            .controls
+                                input(type="text", name="author", value=item?item.author:null)
                         .control-group
                             label.control-label.inline(for="date") 日期：
                             .controls
                                 input(type="text", name="date", value=item?item.date:null)
+                        input(type="hidden", name="photolink", value=item?item.photolink:null)
+                        input(type="hidden", name="thumbnail", value=item?item.thumbnail:null)
                     when 'video'
                         .control-group
-                            label.control-label.inline(for="link") 视频地址：
+                            label.control-label.inline(for="videolink") 视频地址：
                             .controls
-                                input(type="text", name="link", value=item?item.link:null)
+                                input(type="text", name="videolink", value=item?item.videolink:null)
                         .control-group
-                            label.control-label.inline(for="date") 缩略图：
+                            label.control-label.inline(for="thumb") 缩略图：
                             .controls
-                                input(type="file", name="date", accept="image/jpeg,image/png")
+                                input(type="file", name="thumb", accept="image/jpeg,image/png")
+                        input(type="hidden", name="thumbnail", value=item?item.thumbnail:null)
                     when 'data'
                         .control-group
-                            label.control-label.inline(for="date") 缩略图：
+                            label.control-label.inline(for="thumb") 缩略图：
                             .controls
-                                input(type="file", name="date", accept="image/jpeg,image/png")
+                                input(type="file", name="thumb", accept="image/jpeg,image/png")
+                        .control-group
+                            label.control-label.inline(for="datafile") 缩略图：
+                            .controls
+                                input(type="file", name="datafile")
+                        input(type="hidden", name="datalink", value=item?item.datalink:null)
+                        input(type="hidden", name="thumbnail", value=item?item.thumbnail:null)
                 .control-group
                     label.control-label.inline(for="weight") 权重：
                         i (数值越高排列越靠前)

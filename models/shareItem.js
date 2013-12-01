@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
 
 var ShareItemSchema = mongoose.Schema({
-    title: String,
-    link: String,
+    title: { type: String, default: '未命名' },
+    videolink: String,
+    datalink: String,
+    photolink: String,
     thumbnail: String,
     date: String,
     tag: String,
