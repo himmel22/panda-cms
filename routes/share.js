@@ -233,10 +233,12 @@ exports.deleteItem = function(req, res) {
     return;
 }
 
-exports.list = function(req, res) {
-    ShareItem.find(
-        { type: req.params.itemType }, 
+exports.list = function(req, res, next) {
+    var page = req.query.page;
+    var limit = 20;
+    ShareItem.find({ type: req.params.itemType }).skip((page - 1) * limit).limit(limit).exec(
         function(err, items) {
+            if(err) { next(err); }
             res.render('admin/listShareItem', {
                 title: '添加分享',
                 itemType: req.params.itemType,
@@ -253,7 +255,7 @@ function editItem(req, res, shareItem) {
     shareItem.videolink = req.body.videolink;
     shareItem.photolink = req.body.photolink;
     shareItem.thumbnail = req.body.thumbnail;
-    shareItem.date = req.body.date;
+    shareItem.date = req.body.date;    
     shareItem.tag = req.body.tag;
     shareItem.type = req.params.itemType;
     shareItem.catalog = req.body.catalog;
