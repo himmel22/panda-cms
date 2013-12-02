@@ -17,4 +17,19 @@ block content
         #content-body.span12
             if items !== null
                 each item in items
-                    div= item.title+'vv'
+                    case itemType
+                        when 'photo'
+                            a.photo(href="#")
+                                img(src="#{item.thumbnail}")
+                                p= item.title
+                        when 'video'
+                            div
+                        when 'data'
+                            div
+            .pagination
+                ul
+                    - for (var x = 1; x <= pageCount; x++)
+                        if x == curPage
+                            li.active: a(href="/admin/share/#{itemType}/?page=#{x}")= x
+                        else
+                            li: a(href="/admin/share/#{itemType}/?page=#{x}")= x

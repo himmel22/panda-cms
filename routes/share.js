@@ -235,16 +235,24 @@ exports.deleteItem = function(req, res) {
 
 exports.list = function(req, res, next) {
     var page = req.query.page;
-    var limit = 20;
-    ShareItem.find({ type: req.params.itemType }).skip((page - 1) * limit).limit(limit).exec(
-        function(err, items) {
-            if(err) { next(err); }
-            res.render('admin/listShareItem', {
-                title: '添加分享',
-                itemType: req.params.itemType,
-                items: items
+    var limit = 50;
+
+    ShareItem.count({ type: req.params.itemType }, function(err, count) {
+        console.log(count);
+        ShareItem.find({ type: req.params.itemType }).skip((page - 1) * limit).limit(limit).exec(
+            function(err, items) {
+                if(err) { next(err); }
+                res.render('admin/listShareItem', {
+                    title: '添加分享',
+                    itemType: req.params.itemType,
+                    items: items,
+                    pageCount: Math.floor(count/limit) + 1,
+                    curPage: page
+                });
             });
-        });
+    });
+
+
 }
 
 function editItem(req, res, shareItem) {
@@ -309,7 +317,7 @@ function handleImage(image, newFileName) {
     var uploadPath = __dirname + "/../public/upload/images/";
     fs.rename(image.path, uploadPath + newFileName, function() {
         //生成缩略图
-        var thumbName = 'thumb_' + image.hash + extname;
+        var thumbName = 'thumb_' + newFileName;
         var srcPath = uploadPath + newFileName;
         var dstPath = uploadPath + thumbName
         im.convert([srcPath, '-resize', '300x200^', '-gravity', 'center', '-extent', '300x200', dstPath],
