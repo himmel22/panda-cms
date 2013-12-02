@@ -19,7 +19,7 @@ block content
                 each item in items
                     case itemType
                         when 'photo'
-                            a.photo(href="#")
+                            a.photo(href="/share/item/#{item._id}/edit")
                                 img(src="#{item.thumbnail}")
                                 p= item.title
                         when 'video'

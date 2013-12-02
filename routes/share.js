@@ -220,7 +220,8 @@ exports.editItem = function(req, res) {
         if(shareItem) {
             res.render('admin/editShareItem', {
                 title: '编辑',
-                shareItem: shareItem
+                shareItem: shareItem,
+                itemType: shareItem.type
             });
         } else {
             res.send(404);
@@ -238,7 +239,6 @@ exports.list = function(req, res, next) {
     var limit = 50;
 
     ShareItem.count({ type: req.params.itemType }, function(err, count) {
-        console.log(count);
         ShareItem.find({ type: req.params.itemType }).skip((page - 1) * limit).limit(limit).exec(
             function(err, items) {
                 if(err) { next(err); }
@@ -265,7 +265,7 @@ function editItem(req, res, shareItem) {
     shareItem.thumbnail = req.body.thumbnail;
     shareItem.date = req.body.date;    
     shareItem.tag = req.body.tag;
-    shareItem.type = req.params.itemType;
+    shareItem.type = req.body.type;
     shareItem.catalog = req.body.catalog;
     shareItem.weight = (req.body.weight==='' ? 0:req.body.weight);
 
@@ -306,7 +306,7 @@ function editItem(req, res, shareItem) {
             res.redirect('back');
         } else {
             req.session.alert = { message: '成功添加分享！', type: 'alert-success' };
-            res.redirect('/admin/share/' + req.params.itemType);
+            res.redirect('/admin/share/' + req.body.type);
         }
     });
 

@@ -5,22 +5,22 @@ block content
         #content-header.span12
             case itemType
                 when 'photo'
-                    h1 添加照片
+                    h1 编辑照片
                 when 'video'
-                    h1 添加视频
+                    h1 编辑视频
                 when 'data'
-                    h1 添加资料
+                    h1 编辑资料
     .row-fluid
         #content-body.span12
             form#edit-node-form(
                 method="POST", 
-                action=item?"/share/item/#{item._id}/edit":"/share/item/add/#{itemType}",
+                action=shareItem?"/share/item/#{shareItem._id}/edit":"/share/item/add/#{itemType}",
                 enctype="multipart/form-data"
                 )
                 .control-group
                     label.control-label.inline(for="itemTitle") 标题：
                     .controls
-                        input(type="text", name="itemTitle", value=item?item.title:null)
+                        input(type="text", name="itemTitle", value=shareItem?shareItem.title:null)
                 case itemType
                     when 'photo'
                         .control-group
@@ -38,23 +38,23 @@ block content
                         .control-group
                             label.control-label.inline(for="author") 作者：
                             .controls
-                                input(type="text", name="author", value=item?item.author:null)
+                                input(type="text", name="author", value=shareItem?shareItem.author:null)
                         .control-group
                             label.control-label.inline(for="date") 日期：
                             .controls
-                                input(type="text", name="date", value=item?item.date:null)
-                        input(type="hidden", name="photolink", value=item?item.photolink:null)
-                        input(type="hidden", name="thumbnail", value=item?item.thumbnail:null)
+                                input(type="text", name="date", value=shareItem?shareItem.date:null)
+                        input(type="hidden", name="photolink", value=shareItem?shareItem.photolink:null)
+                        input(type="hidden", name="thumbnail", value=shareItem?shareItem.thumbnail:null)
                     when 'video'
                         .control-group
                             label.control-label.inline(for="videolink") 视频地址：
                             .controls
-                                input(type="text", name="videolink", value=item?item.videolink:null)
+                                input(type="text", name="videolink", value=shareItem?shareItem.videolink:null)
                         .control-group
                             label.control-label.inline(for="thumb") 缩略图：
                             .controls
                                 input(type="file", name="thumb", accept="image/jpeg,image/png")
-                        input(type="hidden", name="thumbnail", value=item?item.thumbnail:null)
+                        input(type="hidden", name="thumbnail", value=shareItem?shareItem.thumbnail:null)
                     when 'data'
                         .control-group
                             label.control-label.inline(for="thumb") 缩略图：
@@ -64,12 +64,13 @@ block content
                             label.control-label.inline(for="datafile") 缩略图：
                             .controls
                                 input(type="file", name="datafile")
-                        input(type="hidden", name="datalink", value=item?item.datalink:null)
-                        input(type="hidden", name="thumbnail", value=item?item.thumbnail:null)
+                        input(type="hidden", name="datalink", value=shareItem?shareItem.datalink:null)
+                        input(type="hidden", name="thumbnail", value=shareItem?shareItem.thumbnail:null)
                 .control-group
                     label.control-label.inline(for="weight") 权重：
                         i (数值越高排列越靠前)
                     .controls
-                        input(type="text", name="weight", value=item?item.weight:null)
+                        input(type="text", name="weight", value=shareItem?shareItem.weight:null)
+                input(type="hidden", name="type", value=shareItem?shareItem.type:itemType)
                 .form-actions
                     button.btn.btn-primary(type="submit") 提交
