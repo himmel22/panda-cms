@@ -84,6 +84,7 @@ app.post('/upload/image', upload.image);
 
 //share pages
 app.get('/share/:itemType', share.viewItemList);
+app.get('/share/:itemType/:catalog', share.viewItemList);
 
 app.all('/share/item/add/:itemType', auth, share.addItem);
 app.all('/share/item/:id/edit', auth, share.editItem);

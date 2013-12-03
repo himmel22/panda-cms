@@ -21,7 +21,7 @@ exports.viewItemList = function(req, res) {
     function(err, results) {
 
         var page = req.query.page;
-        var catalog =req.query.catalog;
+        var catalog =req.params.catalog;
         var limit = 50;
 
         ShareItem.count({ type: req.params.itemType, catalog: catalog }, function(err, count) {
@@ -34,7 +34,8 @@ exports.viewItemList = function(req, res) {
                         itemType: req.params.itemType,
                         items: items,
                         pageCount: Math.floor(count/limit) + 1,
-                        curPage: page
+                        curPage: page,
+                        curUrl: req.url
                     });
                 });
         });
