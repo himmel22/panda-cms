@@ -83,10 +83,7 @@ app.post('/upload/image', upload.image);
 //front pages
 
 //share pages
-app.get('/share/news', share.news);
-app.get('/share/photos', share.photos);
-app.get('/share/videos', share.videos);
-app.get('/share/data', share.data);
+app.get('/share/:itemType', share.viewItemList);
 
 app.all('/share/item/add/:itemType', auth, share.addItem);
 app.all('/share/item/:id/edit', auth, share.editItem);

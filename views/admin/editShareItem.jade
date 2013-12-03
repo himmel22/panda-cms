@@ -5,13 +5,22 @@ block content
         #content-header.span12
             case itemType
                 when 'photo'
-                    h1 编辑照片
+                    h1 #{title}-照片
                 when 'video'
-                    h1 编辑视频
+                    h1 #{title}-视频
                 when 'data'
-                    h1 编辑资料
+                    h1 #{title}-资料
     .row-fluid
         #content-body.span12
+            .item-preview
+                if shareItem
+                    case itemType
+                        when 'photo'
+                            img(src="#{shareItem.photolink}")
+                        when 'video'
+                            img(src="#{shareItem.thumbnail}")
+                        when 'data'
+                            img(src="#{shareItem.thumbnail}")
             form#edit-node-form(
                 method="POST", 
                 action=shareItem?"/share/item/#{shareItem._id}/edit":"/share/item/add/#{itemType}",
@@ -27,10 +36,10 @@ block content
                             label.control-label.inline(for="catalog") 分类：
                             .controls
                                 select(name="catalog")
-                                    option(value="大熊猫") 大熊猫
-                                    option(value="白头叶猴") 白头叶猴
-                                    option(value="白海豚") 白海豚
-                                    option(value="其他") 其他
+                                    option(value="panda" selected=shareItem?shareItem.catalog=='panda':null) 大熊猫
+                                    option(value="monkey" selected=shareItem?shareItem.catalog=='monkey':null) 白头叶猴
+                                    option(value="dolphin" selected=shareItem?shareItem.catalog=='dolphin':null) 白海豚
+                                    option(value="other" selected=shareItem?shareItem.catalog=='other':null) 其他
                         .control-group
                             label.control-label.inline(for="photo") 上传照片：
                             .controls
@@ -61,7 +70,7 @@ block content
                             .controls
                                 input(type="file", name="thumb", accept="image/jpeg,image/png")
                         .control-group
-                            label.control-label.inline(for="datafile") 缩略图：
+                            label.control-label.inline(for="datafile") 上传资料文件：
                             .controls
                                 input(type="file", name="datafile")
                         input(type="hidden", name="datalink", value=shareItem?shareItem.datalink:null)

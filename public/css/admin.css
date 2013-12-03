@@ -29,3 +29,13 @@ a:hover{color:#2156aa;text-decoration:none}
 #album-field ul .upload:hover{background-color:#f1f1f1;cursor:pointer}
 #album-field ul img{height:80px}
 .abstract-editor{width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:80px}
+#share-item-list ul.photos,#share-item-list ul.data,#share-item-list ul.videos{overflow:hidden;list-style:none;margin:0;}
+#share-item-list ul.photos a,#share-item-list ul.data a,#share-item-list ul.videos a{float:left;width:150px;margin-right:20px;margin-bottom:20px;background-color:#fcfcfc;padding:15px;}
+#share-item-list ul.photos a:hover,#share-item-list ul.data a:hover,#share-item-list ul.videos a:hover{background-color:#f6f6f6}
+#share-item-list ul.photos a p,#share-item-list ul.data a p,#share-item-list ul.videos a p{height:20px;padding-top:10px;text-align:center}
+#share-item-list .videos img{height:100px;width:150px}
+#share-item-list .photos img{height:100px;overflow:hidden}
+#share-item-list .data img{height:100px;overflow:hidden}
+#share-item-list ul.sub-nav{list-style:none;margin:0;line-height:40px;margin-bottom:10px;}
+#share-item-list ul.sub-nav li{display:inline;padding-right:20px}
+.item-preview img{width:300px;padding:15px;background-color:#fcfcfc;margin-bottom:20px}

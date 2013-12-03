@@ -1,150 +1,195 @@
 @import 'nib'
 
 body
-	background-color: #444
+    background-color: #444
 
 a
-	color: #629bda
-	&:hover
-		color: #2156aa
-		text-decoration: none
+    color: #629bda
+    &:hover
+        color: #2156aa
+        text-decoration: none
 
 
 #sidemenu
-	display: block
-	float: left
-	position: relative
-	width: 220px
-	z-index: 16
-	ul
-		padding: 0
-		margin: 0
-		margin-top: 20px
-		position: absolute
-		width: 220px
-	li
-		list-style: none
-		a
-			color: #ccc
-			display: block
-			line-height: 3em
-			padding-left: 10px
-			border-top: 1px solid #4e4e4e
-			border-bottom: 1px solid #393939
-			transition: background-color 0.1s, color 0.1s
-			&:hover
-				color: #fff
-				text-decoration: none
-				background-color: #333
-			&.active
-				background: linear-gradient(top, #353535, #333)
-			i
-				margin-right: 5px
+    display: block
+    float: left
+    position: relative
+    width: 220px
+    z-index: 16
+    ul
+        padding: 0
+        margin: 0
+        margin-top: 20px
+        position: absolute
+        width: 220px
+    li
+        list-style: none
+        a
+            color: #ccc
+            display: block
+            line-height: 3em
+            padding-left: 10px
+            border-top: 1px solid #4e4e4e
+            border-bottom: 1px solid #393939
+            transition: background-color 0.1s, color 0.1s
+            &:hover
+                color: #fff
+                text-decoration: none
+                background-color: #333
+            &.active
+                background: linear-gradient(top, #353535, #333)
+            i
+                margin-right: 5px
 
 #content
-	background: none repeat scroll 0 0 #eeeeee
-	margin-left: 220px
-	margin-right: 0
-	padding-bottom: 25px
-	position: relative
-	min-height: 900px
-	width: auto
-	background-clip: padding-box
-	border-top-left-radius: 8px
-	padding-top: 20px
+    background: none repeat scroll 0 0 #eeeeee
+    margin-left: 220px
+    margin-right: 0
+    padding-bottom: 25px
+    position: relative
+    min-height: 900px
+    width: auto
+    background-clip: padding-box
+    border-top-left-radius: 8px
+    padding-top: 20px
 
 #content-header
-	padding-bottom: 15px
+    padding-bottom: 15px
 
 .box
-	background-color: #FFF
-	border: 1px solid #ddd
-	border-radius: 5px
-	margin-bottom: 20px
-	.box-header
-		background: linear-gradient(top, #fdfdfd, #eaeaea)
-		padding-left: 10px
-		border-radius: top 5px
-		border-bottom: 1px solid #ddd
-		height: 32px
-		position: relative
-		h2
-			color: #636363
-			margin: 0
-			padding: 0
-			font-size: 12px
-			line-height: 35px
-		.ops
-			position: absolute
-			right: 10px
-			top: 7px
-	.list
-		margin: 0
-		background-color: #f6f6f6
-		li
-			line-height: 30px
-		> li
-			border-bottom: 1px solid #ddd
-			border-top: 1px solid #fff
-			padding: 10px
-			list-style: none
-			color: #666
-			font-size: 14px
-			a
-				font-size: 14px
-		.weight
-			margin-left: 10px
-			color: #999
-	.tree-list
-		@extend .box .list
-		.branch 
-			margin-top: 10px
-			margin-bottom: 10px
-			li
-				border-bottom: 1px dotted #ddd
-				padding-top: 5px
-				padding-bottom: 0px
+    background-color: #FFF
+    border: 1px solid #ddd
+    border-radius: 5px
+    margin-bottom: 20px
+    .box-header
+        background: linear-gradient(top, #fdfdfd, #eaeaea)
+        padding-left: 10px
+        border-radius: top 5px
+        border-bottom: 1px solid #ddd
+        height: 32px
+        position: relative
+        h2
+            color: #636363
+            margin: 0
+            padding: 0
+            font-size: 12px
+            line-height: 35px
+        .ops
+            position: absolute
+            right: 10px
+            top: 7px
+    .list
+        margin: 0
+        background-color: #f6f6f6
+        li
+            line-height: 30px
+        > li
+            border-bottom: 1px solid #ddd
+            border-top: 1px solid #fff
+            padding: 10px
+            list-style: none
+            color: #666
+            font-size: 14px
+            a
+                font-size: 14px
+        .weight
+            margin-left: 10px
+            color: #999
+    .tree-list
+        @extend .box .list
+        .branch 
+            margin-top: 10px
+            margin-bottom: 10px
+            li
+                border-bottom: 1px dotted #ddd
+                padding-top: 5px
+                padding-bottom: 0px
 
 #album-field
-	ul
-		margin: 0
-		padding: 0
-		background-color: #fcfcfc
-		padding: 20px
-		list-style: none
-		border-radius: 5px
-		li
-			padding: 10px
-			margin-right: 10px
-			margin-bottom: 10px
-			display: inline-block
-			border: 1px solid #eee
-			border-radius: 5px
-			vertical-align: middle
-			.delete
-				margin-top: 10px
-		li.album-upload
-			width: 100px
-			height: 100px
-			padding: 0
-			border: 4px dotted #EEE
-			margin-left: 10px
-		.upload
-			width: 100px
-			height: 100px
-			text-align: center
-			line-height: 100px
-			color: #999
-			&:hover
-				background-color: #f1f1f1
-				cursor: pointer
-		img
-			height: 80px
+    ul
+        margin: 0
+        padding: 0
+        background-color: #fcfcfc
+        padding: 20px
+        list-style: none
+        border-radius: 5px
+        li
+            padding: 10px
+            margin-right: 10px
+            margin-bottom: 10px
+            display: inline-block
+            border: 1px solid #eee
+            border-radius: 5px
+            vertical-align: middle
+            .delete
+                margin-top: 10px
+        li.album-upload
+            width: 100px
+            height: 100px
+            padding: 0
+            border: 4px dotted #EEE
+            margin-left: 10px
+        .upload
+            width: 100px
+            height: 100px
+            text-align: center
+            line-height: 100px
+            color: #999
+            &:hover
+                background-color: #f1f1f1
+                cursor: pointer
+        img
+            height: 80px
 
 
 .abstract-editor
-	width: 100%
-	box-sizing: border-box
-	height: 80px
+    width: 100%
+    box-sizing: border-box
+    height: 80px
 
+#share-item-list
+    ul.photos,ul.data,ul.videos
+        overflow: hidden
+        list-style: none
+        margin: 0
 
+        a
+            float: left
+            width:150px
+            margin-right: 20px
+            margin-bottom: 20px
+            background-color: #fcfcfc
+            padding: 15px
+            &:hover
+                background-color: #f6f6f6
+            p
+                height: 20px
+                padding-top: 10px
+                text-align: center
+    .videos
+        img
+            height: 100px
+            width:150px
+    .photos
+        img 
+            height: 100px
+            overflow: hidden
+    .data
+        img
+            height: 100px
+            overflow: hidden
+    ul.sub-nav
+        list-style: none
+        margin: 0
+        line-height: 40px
+        margin-bottom: 10px
+        li
+            display: inline
+            padding-right: 20px
+
+.item-preview
+    img
+        width: 300px
+        padding: 15px
+        background-color: #fcfcfc
+        margin-bottom: 20px

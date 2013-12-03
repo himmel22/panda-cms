@@ -22,33 +22,30 @@ block content
 
                 .span9
                     #share-center
-                        case shareType
-                            when 'videos'
+                        case itemType
+                            when 'video'
                                 ul.videos
-                                    each video in videos
+                                    each item in items
                                         li
-                                            a(href=video.link, target="_blank")
-                                                img(src=video.img, alt="")
-                                                p= video.title
-                            when 'photos'
+                                            a(href=item.videolink, target="_blank")
+                                                img(src=item.thumbnail, alt="")
+                                                p= item.title
+                            when 'photo'
                                 ul.sub-nav
-                                    li: a(href="/share/photos/?type=panda") 大熊猫
-                                    li: a(href="/share/photos/?type=monkey") 白头叶猴
-                                    li: a(href="/share/photos/?type=dolphin") 白海豚
-                                    li: a(href="/share/photos/?type=other") 其他
+                                    li: a(href="/share/photo/?catalog=panda") 大熊猫
+                                    li: a(href="/share/photo/?catalog=monkey") 白头叶猴
+                                    li: a(href="/share/photo/?catalog=dolphin") 白海豚
+                                    li: a(href="/share/photo/?catalog=other") 其他
                                 ul.photos
-                                    each photo in photos
+                                    each item in items
                                         li
-                                            a(href=photo.link, target="_blank")
-                                                img(src=photo.img, alt="")
+                                            a(href=item.photolink, target="_blank")
+                                                img(src=item.thumbnail, alt="")
                                                 p 2010年10月
                             when 'data'
                                 ul.data
-                                    each file in files
+                                    each item in items
                                         li
-                                            a(href=file.link, target="_blank")
-                                                img(src=file.img, alt="")
-                                                p= file.title
-                            when 'news'
-                                ul
-                                    li news
+                                            a(href=item.datalink, target="_blank")
+                                                img(src=item.thumbnail, alt="")
+                                                p= item.title

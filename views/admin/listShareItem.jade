@@ -6,30 +6,42 @@ block content
             case itemType
                 when 'photo'
                     h1 所有照片
-                    a(href="/share/item/add/#{itemType}") +添加照片
+                    a(href="/share/item/add/#{itemType}", target="_blank") +添加照片
                 when 'video'
                     h1 所有视频
-                    a(href="/share/item/add/#{itemType}") +添加视频
+                    a(href="/share/item/add/#{itemType}", target="_blank") +添加视频
                 when 'data'
                     h1 所有资料
-                    a(href="/share/item/add/#{itemType}") +添加资料
+                    a(href="/share/item/add/#{itemType}", target="_blank") +添加资料
     .row-fluid
         #content-body.span12
             if items !== null
-                each item in items
+                #share-item-list
                     case itemType
                         when 'photo'
-                            a.photo(href="/share/item/#{item._id}/edit")
-                                img(src="#{item.thumbnail}")
-                                p= item.title
+                            ul.photos
+                                each item in items
+                                    li: a.photo(href="/share/item/#{item._id}/edit")
+                                        img(src="#{item.thumbnail}")
+                                        p= item.title
                         when 'video'
-                            div
+                            ul.videos
+                                each item in items
+                                    li
+                                        a(href="/share/item/#{item._id}/edit")
+                                            img(src=item.thumbnail, alt="")
+                                            p= item.title
                         when 'data'
-                            div
+                            ul.data
+                                each item in items
+                                    li
+                                        a(href="/share/item/#{item._id}/edit")
+                                            img(src=item.thumbnail?item.thumbnail:'/images/pdf.png', alt="")
+                                            p= item.title
             .pagination
                 ul
                     - for (var x = 1; x <= pageCount; x++)
-                        if x == curPage
+                        if x == curPage || pageCount == 1
                             li.active: a(href="/admin/share/#{itemType}/?page=#{x}")= x
                         else
                             li: a(href="/admin/share/#{itemType}/?page=#{x}")= x
