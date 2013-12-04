@@ -46,6 +46,7 @@ body{margin:0;padding:0}
 #album{width:780px;height:325px;overflow:hidden;}
 #album img{width:100%}
 #contact-table td{width:33%;padding:0}
+#share-center{overflow:hidden;}
 #share-center ul.photos,#share-center ul.data,#share-center ul.videos{list-style:none;margin:0;}
 #share-center ul.photos li,#share-center ul.data li,#share-center ul.videos li{float:left;width:150px;margin-right:20px;margin-bottom:20px;}
 #share-center ul.photos li p,#share-center ul.data li p,#share-center ul.videos li p{height:30px;padding-top:10px;text-align:center}
