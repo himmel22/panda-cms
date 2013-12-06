@@ -45,7 +45,7 @@ exports.viewItemList = function(req, res) {
 exports.addItem = function(req, res) {
     if (req.method === 'POST') {
         var shareItem = new ShareItem();
-        editItem(req, res, shareItem);
+        handlePostItem(req, res, shareItem);
         return;
     }
     res.render('admin/editShareItem', {
@@ -63,7 +63,7 @@ exports.editItem = function(req, res) {
                 next(err);
             }
             if(shareItem) {
-                editItem(req, res, shareItem);
+                handlePostItem(req, res, shareItem);
             } else {
                 res.send(404);
             }
@@ -112,7 +112,7 @@ exports.list = function(req, res, next) {
     });
 }
 
-function editItem(req, res, shareItem) {
+function handlePostItem(req, res, shareItem) {
     if (req.body.itemTitle.length > 0) {
         shareItem.title = req.body.itemTitle;
     }

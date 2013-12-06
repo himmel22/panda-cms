@@ -1,8 +1,14 @@
 extends layout
 block head
+    script(type="text/javascript", src="/js/lib/jquery.mousewheel-3.0.6.pack.js")
+    link(rel="stylesheet", type="text/css", href="/js/lib/fancybox/jquery.fancybox.css?v=2.1.5")
+    script(type="text/javascript", src="/js/lib/fancybox/jquery.fancybox.pack.js?v=2.1.5")
+    script(type="text/javascript", src="/js/lib/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5")
+    
     script.
         $(document).ready(function(){
             $('.carousel').carousel();
+            $(".fancybox").fancybox();
             });
 
 block content
@@ -16,8 +22,8 @@ block content
                                 a(href="/") 返回首页&lt;
                         ul
                             //- li: a(href="/share/news") 新闻
-                            li: a(href="/share/photos?type=panda") 图片
-                            li: a(href="/share/videos") 视频
+                            li: a(href="/share/photo/panda") 图片
+                            li: a(href="/share/video") 视频
                             li: a(href="/share/data") 资料
 
                 .span9
@@ -39,9 +45,9 @@ block content
                                 ul.photos
                                     each item in items
                                         li
-                                            a(href=item.photolink, target="_blank")
+                                            a.fancybox(href=item.photolink)
                                                 img(src=item.thumbnail, alt="")
-                                                p 2010年10月
+                                                p= item.title
                             when 'data'
                                 ul.data
                                     each item in items
