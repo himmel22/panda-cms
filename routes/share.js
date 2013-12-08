@@ -56,7 +56,6 @@ exports.addItem = function(req, res) {
 
 
 exports.editItem = function(req, res) {
-
     if (req.method === 'POST') {
         ShareItem.findById(req.params.id, function(err, shareItem) {
             if(err) {
@@ -70,7 +69,6 @@ exports.editItem = function(req, res) {
         });
         return;
     }
-
     ShareItem.findById(req.params.id, function(err, shareItem) {
 
         if(err) {
@@ -80,7 +78,7 @@ exports.editItem = function(req, res) {
             res.render('admin/editShareItem', {
                 title: '编辑分享',
                 shareItem: shareItem,
-                itemType: shareItem.type
+                itemType: shareItem.type,
             });
         } else {
             res.send(404);
@@ -89,8 +87,15 @@ exports.editItem = function(req, res) {
     });
 }
 
-exports.deleteItem = function(req, res) {
-    return;
+exports.deleteItem = function(req, res, next) {
+    ShareItem.remove({ _id: req.params.id }, function(err) {
+        if(err) {
+            next(err);
+        }
+    });
+
+    req.session.alert = { message: '已删除！', type: 'alert-success' };
+    res.redirect('admin');
 }
 
 exports.list = function(req, res, next) {

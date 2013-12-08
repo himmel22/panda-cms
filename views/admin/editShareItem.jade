@@ -83,3 +83,6 @@ block content
                 input(type="hidden", name="type", value=shareItem?shareItem.type:itemType)
                 .form-actions
                     button.btn.btn-primary(type="submit") 提交
+                    if shareItem
+                        | 
+                        a.btn.btn-link(href="/share/item/#{shareItem._id}/delete", onclick="return confirm('确定要删除这个分享吗？');") 删除这个分享
