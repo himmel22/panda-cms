@@ -66,13 +66,13 @@ block content
                         input(type="hidden", name="thumbnail", value=shareItem?shareItem.thumbnail:null)
                     when 'data'
                         .control-group
-                            label.control-label.inline(for="thumb") 缩略图：
-                            .controls
-                                input(type="file", name="thumb", accept="image/jpeg,image/png")
-                        .control-group
                             label.control-label.inline(for="datafile") 上传资料文件：
                             .controls
                                 input(type="file", name="datafile")
+                        .control-group
+                            label.control-label.inline(for="thumb") 缩略图：
+                            .controls
+                                input(type="file", name="thumb", accept="image/jpeg,image/png")
                         input(type="hidden", name="datalink", value=shareItem?shareItem.datalink:null)
                         input(type="hidden", name="thumbnail", value=shareItem?shareItem.thumbnail:null)
                 .control-group

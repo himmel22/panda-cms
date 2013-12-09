@@ -53,7 +53,7 @@ block content
                                     each item in items
                                         li
                                             a(href=item.datalink, target="_blank")
-                                                img(src=item.thumbnail, alt="")
+                                                img(src=item.thumbnail?item.thumbnail:'/images/pdf.png', alt="")
                                                 p= item.title
                     .pagination
                         ul
