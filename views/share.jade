@@ -31,6 +31,8 @@ block content
                             a(href="/share/#{itemType}?tag=#{index}")= index
                 .span9
                     #share-center
+                        if tag
+                            h4 标签: #{tag} 
                         case itemType
                             when 'video'
                                 ul.videos

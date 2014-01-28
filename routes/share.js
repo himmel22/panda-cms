@@ -24,7 +24,6 @@ exports.viewItemList = function(req, res) {
         }
     }, 
     function(err, results) {
-        console.log(results.tags);
         var page = req.query.page;
         var catalog =req.params.catalog;
         var limit = 50;
@@ -36,6 +35,7 @@ exports.viewItemList = function(req, res) {
                         res.render('share', {
                             articles: results.articles,
                             tags: results.tags,
+                            tag: req.query.tag,
                             title: '分享-荒野的呼唤',
                             itemType: req.params.itemType,
                             items: items,
