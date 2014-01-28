@@ -89,7 +89,7 @@ block content
                     label.control-label.inline(for="tags") 标签：
                         i (用逗号分隔)
                     .controls
-                        input#tags(type="text", name="tags", value=shareItem?shareItem.tags:null)
+                        input#tags(type="text", name="tags", value=shareItem?shareItem.tags.join(','):null)
                 input(type="hidden", name="type", value=shareItem?shareItem.type:itemType)
                 .form-actions
                     button.btn.btn-primary(type="submit") 提交

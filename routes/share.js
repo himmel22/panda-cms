@@ -126,7 +126,7 @@ function handlePostItem(req, res, shareItem) {
     shareItem.photolink = req.body.photolink;
     shareItem.thumbnail = req.body.thumbnail;
     shareItem.date = req.body.date;    
-    shareItem.tags = req.body.tags;
+    shareItem.tags = req.body.tags.split(',');
     shareItem.type = req.body.type;
     shareItem.catalog = req.body.catalog;
     shareItem.weight = (req.body.weight==='' ? 0:req.body.weight);
