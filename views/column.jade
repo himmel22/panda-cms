@@ -26,7 +26,7 @@ block content
                 .span9
                     if articles[column]
                         each art, index in articles[column]
-                            if art && index < 5
+                            if art
                                 .article-brief
                                     if art.nodeName
                                         h2: a(href="/node/#{art.nodeName}")= art.title

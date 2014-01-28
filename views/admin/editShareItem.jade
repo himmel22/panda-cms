@@ -1,5 +1,10 @@
 extends adminLayout
 block head
+    script.
+        $(function() {
+            $('#tags').tagsInput();
+            });
+        
 block content
     .row-fluid
         #content-header.span12
@@ -80,6 +85,11 @@ block content
                         i (数值越高排列越靠前)
                     .controls
                         input(type="text", name="weight", value=shareItem?shareItem.weight:null)
+                .control-group
+                    label.control-label.inline(for="tags") 标签：
+                        i (用逗号分隔)
+                    .controls
+                        input#tags(type="text", name="tags", value=shareItem?shareItem.tags:null)
                 input(type="hidden", name="type", value=shareItem?shareItem.type:itemType)
                 .form-actions
                     button.btn.btn-primary(type="submit") 提交

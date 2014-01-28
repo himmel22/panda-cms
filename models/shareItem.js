@@ -7,7 +7,7 @@ var ShareItemSchema = mongoose.Schema({
     photolink: String,
     thumbnail: String,
     date: String,
-    tag: String,
+    tags: String,
     type: String,
     catalog: String,
     weight: { type: Number, default: 0 }

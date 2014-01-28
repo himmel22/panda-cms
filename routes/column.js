@@ -18,7 +18,6 @@ exports.view = function(req, res) {
     function(err, results) {
 
         var columnName = getColumnName(req.params.columnId)
-
         res.render('column', {
             title: columnName + '-荒野的呼唤',
             articles: results.articles,

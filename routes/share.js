@@ -103,7 +103,7 @@ exports.list = function(req, res, next) {
     var limit = 50;
 
     ShareItem.count({ type: req.params.itemType }, function(err, count) {
-        ShareItem.find({ type: req.params.itemType }).skip((page - 1) * limit).limit(limit).exec(
+        ShareItem.find({ type: req.params.itemType }).skip((page - 1) * limit).limit(limit).sort('_id').exec(
             function(err, items) {
                 if(err) { next(err); }
                 res.render('admin/listShareItem', {
@@ -126,7 +126,7 @@ function handlePostItem(req, res, shareItem) {
     shareItem.photolink = req.body.photolink;
     shareItem.thumbnail = req.body.thumbnail;
     shareItem.date = req.body.date;    
-    shareItem.tag = req.body.tag;
+    shareItem.tags = req.body.tags;
     shareItem.type = req.body.type;
     shareItem.catalog = req.body.catalog;
     shareItem.weight = (req.body.weight==='' ? 0:req.body.weight);
