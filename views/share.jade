@@ -25,7 +25,10 @@ block content
                             li: a(href="/share/photo/panda") 图片
                             li: a(href="/share/video") 视频
                             li: a(href="/share/data") 资料
-
+                    #tags-list
+                        h2 标签：
+                        each val, index in tags
+                            a(href="/share/#{itemType}?tag=#{index}")= index
                 .span9
                     #share-center
                         case itemType

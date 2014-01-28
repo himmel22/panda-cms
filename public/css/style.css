@@ -36,6 +36,11 @@ body{margin:0;padding:0}
 #side-nav ul li.active{background-color:#f1f1f1}
 #side-nav ul a{display:block;line-height:30px;padding-left:7px;color:#666;}
 #side-nav ul a:hover{color:#08c;text-decoration:none;background-color:#f9f9f9}
+#tags-list h2{font-weight:normal;color:#3f8fb9;border-bottom:1px solid #ccc;padding-bottom:5px;}
+#tags-list h2 .back-to-home{float:right;font-size:12px;}
+#tags-list h2 .back-to-home a{color:#666;}
+#tags-list h2 .back-to-home a:hover{color:#08c}
+#tags-list a{margin-right:10px}
 #side-bar .donate{padding-left:15px;padding-bottom:20px;margin-top:15px}
 #footer{min-width:1200px;height:100px;background-color:#555;color:#fff;}
 #footer .container{width:940px}

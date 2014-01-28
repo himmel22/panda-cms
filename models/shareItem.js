@@ -13,5 +13,27 @@ var ShareItemSchema = mongoose.Schema({
     weight: { type: Number, default: 0 }
 });
 
+ShareItemSchema.statics.getTags = function (itemType, callback) {
+    
+    var tags = {};
+    var query = this.model('ShareItem').find({type: itemType});
+
+    query.exec(function(err, docs) {
+
+        //按column分类
+        docs.forEach(function(doc, index) {
+            if (doc.tags) {
+                doc.tags.forEach(function(tag, index) {
+                    if (tags[tag] == null) {
+                        tags[tag] = 0;
+                    }
+                    tags[tag] += 1;
+                });
+            }
+        });
+
+        callback(err, tags);
+    });
+}
 
 module.exports = mongoose.model('ShareItem', ShareItemSchema);

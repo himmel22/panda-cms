@@ -16,31 +16,57 @@ exports.viewItemList = function(req, res) {
             Article.findArticleGroupByColumn(function(err, articles) {
                 callback(err, articles);
             });
+        },
+        tags: function(callback) {
+            ShareItem.getTags(req.params.itemType, function(err, tags) {
+                callback(err, tags)
+            });
         }
     }, 
     function(err, results) {
-
+        console.log(results.tags);
         var page = req.query.page;
         var catalog =req.params.catalog;
         var limit = 50;
-
-        ShareItem.count({ type: req.params.itemType, catalog: catalog }, function(err, count) {
-            ShareItem.find({ type: req.params.itemType, catalog: catalog }).skip((page - 1) * limit).limit(limit).exec(
-                function(err, items) {
-                    if(err) { next(err); }
-                    res.render('share', {
-                        articles: results.articles,
-                        title: '分享-荒野的呼唤',
-                        itemType: req.params.itemType,
-                        items: items,
-                        pageCount: Math.floor(count/limit) + 1,
-                        curPage: page,
-                        curUrl: req.url
+        if (req.query.tag) {
+            ShareItem.count({ type: req.params.itemType, tags: req.query.tag }, function(err, count) {
+                ShareItem.find({ type: req.params.itemType, tags: req.query.tag }).skip((page - 1) * limit).limit(limit).exec(
+                    function(err, items) {
+                        if(err) { next(err); }
+                        res.render('share', {
+                            articles: results.articles,
+                            tags: results.tags,
+                            title: '分享-荒野的呼唤',
+                            itemType: req.params.itemType,
+                            items: items,
+                            pageCount: Math.floor(count/limit) + 1,
+                            curPage: page,
+                            curUrl: req.url
+                        });
                     });
-                });
-        });
+            });
+        } else {
+            ShareItem.count({ type: req.params.itemType, catalog: catalog }, function(err, count) {
+                ShareItem.find({ type: req.params.itemType, catalog: catalog }).skip((page - 1) * limit).limit(limit).exec(
+                    function(err, items) {
+                        if(err) { next(err); }
+                        res.render('share', {
+                            articles: results.articles,
+                            tags: results.tags,
+                            title: '分享-荒野的呼唤',
+                            itemType: req.params.itemType,
+                            items: items,
+                            pageCount: Math.floor(count/limit) + 1,
+                            curPage: page,
+                            curUrl: req.url
+                        });
+                    });
+            });
+        }
+
     });
 }
+
 
 exports.addItem = function(req, res) {
     if (req.method === 'POST') {
